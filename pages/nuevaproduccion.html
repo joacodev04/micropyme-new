@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MicroPyme Production</title>
+<link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+<div class="app-shell">
+
+<!-- SIDEBAR -->
+<aside class="sidebar">
+
+  <div class="brand">
+    <div class="logo"></div>
+    <div>
+      <h1>Production OS</h1>
+      <p>Micropyme Textil • Mock UI</p>
+    </div>
+  </div>
+
+  <nav class="nav">
+    <a href="/index.html"> ⎈ Dashboard</a>
+    <a href="nuevaproduccion.html" class="active"> + Nueva Producción</a>
+
+    <div class="group"></div>
+
+    <a href="productos.html"> ▦ Productos</a>
+    <a href="telas.html"> ◐ Telas</a>
+    <a href="avios.html"> ⌁ Avíos</a>
+
+    <div class="group"></div>
+
+    <a href="procesos.html"> □ Procesos</a>
+    <a href="todo.html"> ✓ To-Do</a>
+  </nav>
+
+</aside>
+
+<!-- MAIN -->
+<main class="main">
+<div class="container">
+
+<div class="topbar">
+  <div>
+    <h2 class="page-title">Nueva Producción</h2>
+    <p class="subtitle">Flujo guiado (mock)</p>
+  </div>
+</div>
+
+<div class="grid">
+<section class="card" style="grid-column: span 12;">
+
+<h3>Nueva producción</h3>
+<p class="hint">Wizard rápido: de idea → números → decisión.</p>
+
+<!-- STEPS -->
+<div class="wizard-steps">
+  <div class="step active">1 Producto</div>
+  <div class="step">2 Colores & Unidades</div>
+  <div class="step">3 Tela & Piezas</div>
+  <div class="step">4 Procesos</div>
+  <div class="step">5 Avíos</div>
+  <div class="step">6 Resumen</div>
+</div>
+
+<hr class="sep">
+
+<!-- PASO 1 -->
+<div class="step-panel active">
+
+<h4>Producto</h4>
+
+<div class="form">
+
+<div class="field full">
+<div class="label">Producto</div>
+<select class="select">
+<option>Remera Cut Off</option>
+<option>Buzo Hoodie Oversize</option>
+<option>Short Track</option>
+</select>
+</div>
+
+<div class="field">
+<div class="label">Consumo histórico sugerido</div>
+<input class="input" value="0,185 kg">
+</div>
+
+<div class="field">
+<div class="label">Merma</div>
+<input class="input" value="5%">
+</div>
+
+<div class="field">
+<div class="label">Tela elegida</div>
+<input class="input" value="Morley Premium">
+</div>
+
+<div class="field">
+<div class="label">Código</div>
+<input class="input" value="PR-00233">
+</div>
+
+</div>
+</div>
+
+<!-- PASO 2 -->
+<div class="step-panel">
+
+<h4>Definí colores y cantidades</h4>
+
+<table class="table">
+<thead>
+<tr>
+<th>Color</th>
+<th>Unidades</th>
+<th>Modelos</th>
+<th>Acción</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Negro</td>
+<td><input class="input" value="180"></td>
+<td>1</td>
+<td><button class="btn">Editar</button></td>
+</tr>
+
+<tr>
+<td>Gris Melange</td>
+<td><input class="input" value="140"></td>
+<td>1</td>
+<td><button class="btn">Editar</button></td>
+</tr>
+
+<tr>
+<td>Azul Marino</td>
+<td><input class="input" value="100"></td>
+<td>1</td>
+<td><button class="btn">Editar</button></td>
+</tr>
+</tbody>
+</table>
+
+<b>Total prendas: 420</b>
+
+</div>
+
+<!-- PASO 3 -->
+<div class="step-panel">
+
+<h4>Seleccionar tela</h4>
+
+<select class="select">
+<option>Morley Premium — Textiles Sur</option>
+<option>Frisa 24/1 — Fibras Norte</option>
+</select>
+
+<div class="form">
+
+<div class="field">
+<div class="label">Consumo kg/prenda</div>
+<input class="input" value="0,185 kg">
+</div>
+
+<div class="field">
+<div class="label">Kg por pieza cerrada</div>
+<input class="input" value="25 kg">
+</div>
+
+<div class="field">
+<div class="label">Precio/kg</div>
+<input class="input" value="$ 9.800">
+</div>
+
+</div>
+
+<b>Total tela: $ 1.225.000</b>
+
+</div>
+
+<!-- PASO 4 -->
+<div class="step-panel">
+
+<h4>Procesos</h4>
+
+<table class="table">
+<tr>
+<td>Corte</td>
+<td>$ 520 / prenda</td>
+<td><input type="checkbox" checked></td>
+</tr>
+
+<tr>
+<td>Confección</td>
+<td>$ 1.650 / prenda</td>
+<td><input type="checkbox" checked></td>
+</tr>
+</table>
+
+<b>Total procesos: $ 1.240.200</b>
+
+</div>
+
+<!-- PASO 5 -->
+<div class="step-panel">
+
+<h4>Avíos</h4>
+
+<table class="table">
+<tr>
+<td>Etiqueta interna</td>
+<td>$ 35.700</td>
+<td><input type="checkbox" checked></td>
+</tr>
+</table>
+
+<b>Total avíos: $ 144.900</b>
+
+</div>
+
+<!-- PASO 6 -->
+<div class="step-panel">
+
+<h4>Resumen financiero</h4>
+
+<table class="table">
+<tr><td>Tela</td><td>$ 1.225.000</td></tr>
+<tr><td>Procesos</td><td>$ 1.240.200</td></tr>
+<tr><td>Avíos</td><td>$ 144.900</td></tr>
+<tr><td><b>Total producción</b></td><td><b>$ 2.610.100</b></td></tr>
+</table>
+
+<div class="grid" style="margin-top:12px">
+
+<div class="card">
+<b>Costo unitario</b><br>
+$ 6.215
+</div>
+
+<div class="card">
+<b>Precio esperado</b><br>
+$ 28.990
+</div>
+
+<div class="card">
+<b>Margen</b><br>
+$ 22.775
+</div>
+
+</div>
+
+<button class="btn-primary">Activar producción</button>
+
+</div>
+
+<!-- NAV -->
+<div style="display:flex;justify-content:space-between;margin-top:16px">
+
+</div>
+
+</section>
+</div>
+
+</div>
+</main>
+
+</div>
+
+<script src="/app.js"></script>
+
+</body>
+</html>

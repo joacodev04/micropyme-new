@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MicroPyme Production</title>
+<link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+
+<div class="app-shell">
+
+<!-- SIDEBAR -->
+<aside class="sidebar">
+
+  <div class="brand">
+    <div class="logo"></div>
+    <div>
+      <h1>Production OS</h1>
+      <p>Micropyme Textil • Mock UI</p>
+    </div>
+  </div>
+
+  <nav class="nav">
+
+    <a href="index.html" class="active" > ⎈ Dashboard</a>
+    <a href="pages/nuevaproduccion.html" > + Nueva Producción</a>
+
+    <div class="group"></div>
+
+    <a href="pages/productos.html"> ▦ Productos</a>
+    <a href="pages/telas.html"> ◐ Telas</a>
+    <a href="pages/avios.html"> ⌁ Avíos</a>
+
+    <div class="group"></div>
+
+    <a href="pages/procesos.html"> □ Procesos</a>
+    <a href="pages/todo.html"> ✓ To-Do</a>
+
+  </nav>
+
+</aside>
+
+<!-- MAIN -->
+<main class="main">
+<div class="container">
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <div>
+    <h2 class="page-title">Dashboard</h2>
+    <p class="subtitle">Vista CEO • estado general de la operación</p>
+  </div>
+
+  <div class="actions">
+    <a href="pages/nuevaproduccion.html" class="btn"> + Nueva Producción</a>
+  </div>
+</div>
+
+<!-- CARDS -->
+<div class="grid">
+
+<!-- KPI -->
+<section class="card">
+
+<h3>Resumen CEO</h3>
+
+<div class="kpi-row">
+
+<div class="kpi">
+  <div class="label">Producciones activas</div>
+  <div class="value">2</div>
+  <div class="delta">en curso ahora</div>
+</div>
+
+<div class="kpi">
+  <div class="label">Prendas en producción</div>
+  <div class="value">560</div>
+  <div class="delta">sumatoria activa</div>
+</div>
+
+<div class="kpi">
+  <div class="label">Plata comprometida</div>
+  <div class="value">$18.500.000</div>
+  <div class="delta">estimado total</div>
+</div>
+
+<div class="kpi">
+  <div class="label">Riesgos / atrasos</div>
+  <div class="value">1</div>
+  <div class="delta">requiere seguimiento</div>
+</div>
+
+</div>
+</section>
+
+<!-- PRODUCCIONES -->
+<section class="card">
+
+<h3>Producciones activas</h3>
+
+<table class="table">
+<thead>
+<tr>
+<th>Código</th>
+<th>Producto</th>
+<th>Etapa</th>
+<th>Estado</th>
+<th>Riesgo</th>
+<th>ETA</th>
+</tr>
+</thead>
+
+<tbody>
+
+<tr>
+<td>PR-00231</td>
+<td>Remera Cut Off</td>
+<td>Confección</td>
+<td><span class="pill">EN PROCESO</span></td>
+<td><span class="pill warn">Atención</span></td>
+<td>2026-02-18</td>
+</tr>
+
+<tr>
+<td>PR-00232</td>
+<td>Short Track</td>
+<td>Compras</td>
+<td><span class="pill">PLANIFICADA</span></td>
+<td><span class="pill ok">OK</span></td>
+<td>2026-02-25</td>
+</tr>
+
+<tr>
+<td>PR-00230</td>
+<td>Buzo Hoodie Oversize</td>
+<td>Finishing</td>
+<td><span class="pill">FINISHING</span></td>
+<td><span class="pill ok">OK</span></td>
+<td>2026-02-12</td>
+</tr>
+
+</tbody>
+</table>
+
+</section>
+
+<!-- PROXIMAS -->
+<section class="card">
+
+<h3>Próximas producciones</h3>
+<p class="hint">Lo que entra a fábrica después.</p>
+
+<div class="split">
+
+<div>
+  <div class="label">En cola</div>
+  <div style="margin-top:8px;color:var(--muted)">1 producción planificada</div>
+  <div class="progress" style="margin-top:10px">
+    <div style="width:20%"></div>
+  </div>
+</div>
+
+<div>
+  <div class="label">Sugerencia del sistema</div>
+  <div style="margin-top:8px">
+    <span class="pill warn">Atención</span>
+    Completar costos y compras antes de pasar a <b>EN PROCESO</b>.
+  </div>
+</div>
+
+</div>
+
+</section>
+
+</div>
+
+</div>
+</main>
+
+</div>
+
+<script src="/app.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MicroPyme Production</title>
+<link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+<div class="app-shell">
+
+<!-- SIDEBAR -->
+<aside class="sidebar">
+
+  <div class="brand">
+    <div class="logo"></div>
+    <div>
+      <h1>Production OS</h1>
+      <p>Micropyme Textil • Mock UI</p>
+    </div>
+  </div>
+
+  <nav class="nav">
+
+    <a href="/index.html"> ⎈ Dashboard</a>
+    <a href="nuevaproduccion.html"> + Nueva Producción</a>
+
+    <div class="group"></div>
+
+    <a href="productos.html"> ▦ Productos</a>
+    <a href="telas.html" class="active"> ◐ Telas</a>
+    <a href="avios.html"> ⌁ Avíos</a>
+
+    <div class="group"></div>
+
+    <a href="procesos.html"> □ Procesos</a>
+    <a href="todo.html"> ✓ To-Do</a>
+
+  </nav>
+
+</aside>
+
+<!-- MAIN -->
+<main class="main">
+<div class="container">
+
+<div class="topbar">
+  <div>
+    <h2 class="page-title">Telas</h2>
+    <p class="subtitle">Catálogo de telas + reglas de piezas cerradas</p>
+  </div>
+</div>
+
+<div class="grid">
+<section class="card">
+
+<div class="split" style="align-items:flex-start">
+
+<div>
+  <h3>Telas</h3>
+  <p class="hint">Catálogo con reglas de compra por piezas cerradas.</p>
+</div>
+
+<div style="display:flex;gap:10px;align-items:center;flex-wrap:nowrap;overflow-x:auto;margin-left:auto;">
+  <input class="input" placeholder="Tela" style="flex: 0.8; min-width: 80px;">
+  <input class="input" placeholder="Precio/KG" style="flex: 0.7; min-width: 70px;">
+  <input class="input" placeholder="KG por pieza" style="flex: 0.8; min-width: 80px;">
+  <input class="input" placeholder="Notas" style="flex: 0.8; min-width: 80px;">
+  <button class="btn" style="flex-shrink: 0;">+ Tela</button>
+</div>
+
+</div>
+
+<table class="table" style="margin-top:12px">
+
+<thead>
+<tr>
+<th>Tela</th>
+<th>Precio/kg</th>
+<th>Kg por pieza cerrada</th>
+<th>Notas</th>
+</tr>
+</thead>
+
+<tbody>
+
+<tr>
+<td><b>Morley Premium</b></td>
+<td>$ 9.800</td>
+<td>25 kg</td>
+<td>Ideal remeras; tolera buena estampa.</td>
+</tr>
+
+<tr>
+<td><b>Frisa 24/1</b></td>
+<td>$ 7.700</td>
+<td>30 kg</td>
+<td>Hoodies y joggers; merma típica 6%.</td>
+</tr>
+
+<tr>
+<td><b>Rústico liviano</b></td>
+<td>$ 7.200</td>
+<td>28 kg</td>
+<td>Shorts; buena caída.</td>
+</tr>
+
+</tbody>
+
+</table>
+
+</section>
+</div>
+
+</div>
+</main>
+
+</div>
+
+<script src="/app.js"></script>
+
+</body>
+</html>
