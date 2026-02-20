@@ -63,13 +63,29 @@
   <p class="hint">Catálogo con reglas de compra por piezas cerradas.</p>
 </div>
 
-<div style="display:flex;gap:10px;align-items:center;flex-wrap:nowrap;overflow-x:auto;margin-left:auto;">
-  <input class="input" placeholder="Tela" style="flex: 0.8; min-width: 80px;">
-  <input class="input" placeholder="Precio/KG" style="flex: 0.7; min-width: 70px;">
-  <input class="input" placeholder="KG por pieza" style="flex: 0.8; min-width: 80px;">
-  <input class="input" placeholder="Notas" style="flex: 0.8; min-width: 80px;">
-  <button class="btn" style="flex-shrink: 0;">+ Tela</button>
-</div>
+<form class="form form-telas">
+
+  <div class="field">
+    <input type="text" class="input" placeholder="Tela" required>
+  </div>
+
+  <div class="field">
+    <input type="text" class="input" placeholder="Precio/KG" required>
+  </div>
+
+  <div class="field">
+    <input type="text" class="input" placeholder="Kg por pieza" required>
+  </div>
+
+  <div class="field">
+    <input type="text" class="input" placeholder="Notas" required>
+  </div>
+
+  <div class="field align-right">
+    <button class="btn">+ Tela</button>
+  </div>
+
+</form>
 
 </div>
 

@@ -324,17 +324,46 @@ button, input, select, textarea{
 .pill.warn{ border-color: rgba(255,204,102,.28); background: rgba(255,204,102,.10); color: rgba(255,204,102,.95); }
 .pill.bad{ border-color: rgba(255,92,122,.30); background: rgba(255,92,122,.10); color: rgba(255,92,122,.95); }
 
+
+/* 4 columnas iguales: 3 inputs + botón */
 .form{
   display:grid;
   grid-template-columns: repeat(12, 1fr);
   gap:12px;
 }
-.field{
-  grid-column: span 6;
-  display:flex;
-  flex-direction:column;
-  gap:8px;
+
+.form .field{
+  grid-column: span 3;
+  display: flex;
+  flex-direction: column;
 }
+
+.form .btn-field{
+  grid-column: span 3;
+  display:flex;
+  align-items:flex-end; 
+}
+
+/* =========================
+   FORM TELAS (5 columnas reales)
+========================= */
+
+.form-telas{
+  display:grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap:12px;
+  align-items:end;
+}
+
+.form-telas .field{
+  grid-column: auto;
+}
+
+.form-telas .align-right{
+  display:flex;
+  justify-content:flex-end;
+}
+
 .field.full{ grid-column: span 12; }
 @media (max-width: 768px){
   .field{ grid-column: span 12; }
@@ -401,15 +430,36 @@ input::placeholder {
   color:var(--muted);
 }
 
-.align-right{
-  margin-left:auto;
+/* =========================
+   PRODUCTOS - input + botón
+========================= */
+
+.product-actions{
+  display:grid;
+  grid-template-columns: 1fr auto;
+  gap:12px;
+  align-items:end;
+}
+
+.product-actions .align-right{
   display:flex;
-  gap:10px;
+  justify-content:flex-end;
+}
+
+.align-right{
+  grid-column: span 12;
+  display: flex;
+  gap: 20px;
+  justify-content: flex-end;
 }
 
 
-.split.between button{
-  white-space:nowrap; /* evita salto en el texto del botón */
+.split.between{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  flex-wrap:nowrap;
 }
 
 
