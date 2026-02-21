@@ -1,9 +1,9 @@
--Organizacion de la logia del codigo pre-creado
+-Organizacion de la logica del codigo pre-creado
 
 Dashboard:
 
 Va a aparecer el resumen de las producciones activas
-Sumatoria de la plata que necesita en total (para cada producto)
+Sumatoria del presupuesto que necesita en total (para cada producto)
 Prendas en total
 
 Productos:
@@ -17,4 +17,4 @@ Avios:
 El usuario agrega avios para sus prendas
 
 Procesos:
-El usuario agrega los procesos
+Corte, confeccion, estampados, finishing

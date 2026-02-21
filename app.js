@@ -4,7 +4,7 @@ let productos = JSON.parse(localStorage.getItem("productos")) || [];
 let avios = JSON.parse(localStorage.getItem("avios")) || [];
 let procesos = JSON.parse(localStorage.getItem("procesos")) || [];
 
-// ===== TELAS =====
+//TELAS 
 const formTela = document.getElementById("formTela");
 const tablaTelas = document.getElementById("tablaTelas");
 
@@ -34,7 +34,7 @@ if(formTela){
   renderTelas();
 }
 
-// ===== PRODUCTOS =====
+//PRODUCTOS 
 const formProducto=document.getElementById("formProducto");
 const tablaProductos=document.getElementById("tablaProductos");
 
@@ -64,7 +64,7 @@ if(formProducto){
   renderProductos();
 }
 
-// ===== AVIOS =====
+//AVIOS
 const formAvio=document.getElementById("formAvio");
 const tablaAvios=document.getElementById("tablaAvios");
 
@@ -93,7 +93,7 @@ if(formAvio){
   renderAvios();
 }
 
-// ===== PROCESOS =====
+//PROCESOS
 const formProceso=document.getElementById("formProceso");
 const tablaProcesos=document.getElementById("tablaProcesos");
 
@@ -130,7 +130,7 @@ const btnBack = document.querySelector(".btn");
 
 let currentStep = 0;
 
-/* ---------- Helpers ---------- */
+//Helpers
 
 function showStep(index){
   steps.forEach((s,i)=>{
@@ -144,7 +144,7 @@ function showStep(index){
   currentStep = index;
 }
 
-/* Click en pasos (Nueva Produccion)*/
+//Click en pasos (Nueva Produccion)
 
 steps.forEach((step, index)=>{
   step.addEventListener("click", ()=>{
@@ -152,9 +152,6 @@ steps.forEach((step, index)=>{
   });
 });
 
-
-
-/* ---------- Inicial ---------- */
 
 showStep(0);
 
