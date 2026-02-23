@@ -17,6 +17,7 @@ function renderTelas(){
         <td><b>${t.nombre}</b></td>
         <td>$${t.precio}</td>
         <td>${t.kg}</td>
+        <td>${t.proveedor || '—'}</td>
         <td>${t.notas}</td>
       </tr>`;
   });
@@ -26,7 +27,7 @@ if(formTela){
   formTela.addEventListener("submit",e=>{
     e.preventDefault();
     const i=formTela.querySelectorAll(".input");
-    telas.push({nombre:i[0].value,precio:i[1].value,kg:i[2].value,notas:i[3].value});
+    telas.push({nombre:i[0].value,precio:i[1].value,kg:i[2].value,proveedor:i[3].value,notas:i[4].value});
     localStorage.setItem("telas",JSON.stringify(telas));
     renderTelas();
     formTela.reset();
@@ -75,8 +76,10 @@ function renderAvios(){
     tablaAvios.innerHTML+=`
       <tr>
         <td><b>${a.nombre}</b></td>
-        <td>${a.unidad}</td>
+        <td>${a.unidad || '—'}</td>
         <td>$${a.costo}</td>
+        <td>${a.proveedor || '—'}</td>
+        <td>${a.notas || ''}</td>
       </tr>`;
   });
 }
@@ -85,7 +88,7 @@ if(formAvio){
   formAvio.addEventListener("submit",e=>{
     e.preventDefault();
     const i=formAvio.querySelectorAll(".input");
-    avios.push({nombre:i[0].value,unidad:i[1].value,costo:i[2].value});
+    avios.push({nombre:i[0].value,unidad:i[1].value,costo:i[2].value,proveedor:i[3].value,notas:i[4].value});
     localStorage.setItem("avios",JSON.stringify(avios));
     renderAvios();
     formAvio.reset();

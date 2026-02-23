@@ -377,6 +377,45 @@ input::placeholder {
   font-size: 15px;
 }
 
+/* Inline form: inputs + button on one line (responsive) */
+.form-inline{
+  display:flex;
+  gap:8px;
+  align-items:center;
+  flex-wrap:wrap;
+  width:100%;
+}
+.form-inline .field{ /* make field wrapper behave inline and distribute space */
+  display:flex;
+  align-items:center;
+  margin:0;
+  flex: 1 1 160px; /* grow/shrink, base 160px */
+  min-width:120px;
+}
+.form-inline .input, .form-inline .select{
+  padding:8px 10px;
+  font-size:13px;
+  border-radius:10px;
+  width:100%;
+}
+.form-inline .btn{
+  padding:8px 10px;
+  border-radius:10px;
+}
+.form-inline .align-right{ /* ensure button stays at line end */
+  margin-left:8px;
+  display:flex;
+  justify-content:flex-end;
+  flex: 0 0 auto;
+}
+
+@media (max-width: 900px){
+  .form-inline{ flex-direction:column; align-items:stretch; }
+  .form-inline .field{ width:100%; }
+  .form-inline .input{ width:100%; }
+  .form-inline .btn{ width:100%; }
+}
+
 .input, .select, .textarea{
   width: 100%;
   padding:10px 12px;
