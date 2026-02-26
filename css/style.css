@@ -344,9 +344,7 @@ button, input, select, textarea{
   align-items:flex-end; 
 }
 
-/* =========================
-   FORM TELAS (5 columnas reales)
-========================= */
+/*FORM TELAS*/
 
 .form-telas{
   display:grid;
@@ -377,7 +375,7 @@ input::placeholder {
   font-size: 15px;
 }
 
-/* Inline form: inputs + button on one line (responsive) */
+
 .form-inline{
   display:flex;
   gap:8px;
@@ -385,11 +383,11 @@ input::placeholder {
   flex-wrap:wrap;
   width:100%;
 }
-.form-inline .field{ /* make field wrapper behave inline and distribute space */
+.form-inline .field{ 
   display:flex;
   align-items:center;
   margin:0;
-  flex: 1 1 160px; /* grow/shrink, base 160px */
+  flex: 1 1 160px;
   min-width:120px;
 }
 .form-inline .input, .form-inline .select{
@@ -402,7 +400,7 @@ input::placeholder {
   padding:8px 10px;
   border-radius:10px;
 }
-.form-inline .align-right{ /* ensure button stays at line end */
+.form-inline .align-right{
   margin-left:8px;
   display:flex;
   justify-content:flex-end;
@@ -440,11 +438,11 @@ input::placeholder {
   align-items:center;
   justify-content:space-between;
   gap:12px;
-  flex-wrap:nowrap; /* nunca baja de línea */
+  flex-wrap:nowrap; 
 }
 
 .split.between > div:first-child{
-  min-width:0; /* permite que el texto se achique */
+  min-width:0; 
 }
 
 .split > :last-child{
@@ -469,15 +467,30 @@ input::placeholder {
   color:var(--muted);
 }
 
-/* =========================
-   PRODUCTOS - input + botón
-========================= */
+/*PRODUCTOS - input + botón*/
 
 .product-actions{
-  display:grid;
-  grid-template-columns: 1fr auto;
+  display:flex;
   gap:12px;
-  align-items:end;
+  align-items:center;
+  margin-bottom:12px;
+  justify-content:flex-start;
+}
+
+.product-actions input[type="text"]{
+  flex: 0 0 360px;
+  width: 360px;
+  padding:6px 10px !important;
+  font-size:12px !important;
+  height:28px !important;
+}
+
+.product-actions button.btn{
+  flex: 0 0 auto;
+  padding:6px 10px !important;
+  font-size:12px !important;
+  height:28px !important;
+  width: auto;
 }
 
 .product-actions .align-right{
@@ -492,6 +505,48 @@ input::placeholder {
   justify-content: flex-end;
 }
 
+/* ===== CONTENEDOR + - ===== */
+.elevador {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Botones */
+.elevador button {
+  width: 32px;
+  height: 32px;
+  border-radius: 10px;
+  border: none;
+  background: #000000;
+  color: #cfd6ff;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.elevador button:hover {
+  background: rgba(255,255,255,.05);
+  color: #fff;
+}
+
+/* Input número */
+.elevador input {
+  width: 70px;
+  text-align: center;
+  background: #000000;
+  border: 1px solid #000000;
+  border-radius: 14px;
+  padding: 6px;
+  color: #fff;
+}
+
+/* Quitar flechas nativas */
+.elevador input::-webkit-inner-spin-button,
+.elevador input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
 
 .split.between{
   display:flex;
@@ -558,9 +613,7 @@ hr.sep{
   .split > *{ min-width: 180px; }
 }
 
-/* ---------- Content framing (fix "se ve meado") ---------- */
 .container{
-  /* Wider by default so the UI doesn’t look "lost" on big monitors */
   max-width: 1480px;
   margin: 0 auto;
   width: 100%;
@@ -573,11 +626,11 @@ hr.sep{
   .container{ max-width: 1620px; padding: 0; }
 }
 
-/* Make the main area feel less empty */
+
 .main{
   padding: 22px 22px 44px;
 }
-/* Slightly tighter topbar and better hierarchy */
+
 .topbar{
   margin-bottom: 16px;
 }
@@ -589,12 +642,12 @@ hr.sep{
   font-size: 12px;
   max-width: 820px;
 }
-/* Stronger surface for primary content */
+
 .card{
   padding: 18px;
   border-color: rgba(255,255,255,.09);
 }
-/* Tables: more breathing room + clearer rows */
+
 .table th, .table td{
   padding: 12px 12px;
 }
@@ -604,27 +657,39 @@ hr.sep{
 .table tr:hover td{
   background: rgba(255,255,255,.05);
 }
-/* Buttons: slightly stronger primary */
+
 .btn.primary{
   background: rgba(124,92,255,.26);
   border-color: rgba(124,92,255,.42);
 }
-/* Optional: remove excessive glow perception */
+
 .sidebar{
-  /* background: linear-gradient(180deg, rgba(255,255,255,.035), rgba(255,255,255,.01)); */
   background-color: black;
 }
 
+.select-tela{
+  width:20%;
+  color: white;
+  padding:10px 12px;
+  border-radius:14px;
+  background: rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.10);
+  outline:none;
+}
 
-/* ---------- Wide layout tuning ---------- */
+select option{
+  background-color: black;
+  color: white;
+}
+
 .grid{
   gap: 16px;
 }
-/* Let cards breathe and feel more "dashboard" */
+
 .card{
   border-radius: 24px;
 }
-/* KPIs: keep in one row more often */
+
 .kpi-row{
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }

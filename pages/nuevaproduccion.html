@@ -69,21 +69,17 @@
 
 <hr class="sep">
 
+<form>
 <!-- PASO 1 -->
 <div class="step-panel active">
 
 <h4>Producto</h4>
 
-<div class="form">
-
-<div class="field full">
-<div class="label">Producto</div>
-<select class="select">
-<option>Remera Cut Off</option>
-<option>Buzo Hoodie Oversize</option>
-<option>Short Track</option>
-</select>
+<div class="product-actions">
+  <input type="text" class="input" placeholder="Nombre del Producto" required>
 </div>
+
+<div class="form">
 
 <div class="field">
 <div class="label">Consumo histórico sugerido</div>
@@ -113,41 +109,24 @@
 
 <h4>Definí colores y cantidades</h4>
 
+<div class="product-actions">
+    <input type="text" class="input" id="input-color" placeholder="Agregar color" required>
+    <button class="btn" id="btn-agregar-color">+ Color</button>
+</div>
+
 <table class="table">
 <thead>
 <tr>
 <th>Color</th>
 <th>Unidades</th>
 <th>Modelos</th>
-<th>Acción</th>
 </tr>
 </thead>
 
-<tbody>
-<tr>
-<td>Negro</td>
-<td><input class="input" value="180"></td>
-<td>1</td>
-<td><button class="btn">Editar</button></td>
-</tr>
-
-<tr>
-<td>Gris Melange</td>
-<td><input class="input" value="140"></td>
-<td>1</td>
-<td><button class="btn">Editar</button></td>
-</tr>
-
-<tr>
-<td>Azul Marino</td>
-<td><input class="input" value="100"></td>
-<td>1</td>
-<td><button class="btn">Editar</button></td>
-</tr>
-</tbody>
+<tbody id="color-texto"></tbody>
 </table>
 
-<b>Total prendas: 420</b>
+<b>Total prendas:</b>
 
 </div>
 
@@ -155,11 +134,7 @@
 <div class="step-panel">
 
 <h4>Seleccionar tela</h4>
-
-<select class="select">
-<option>Morley Premium — Textiles Sur</option>
-<option>Frisa 24/1 — Fibras Norte</option>
-</select>
+<select class="select-tela" id="select-tela"></select>
 
 <div class="form">
 
@@ -212,15 +187,9 @@
 
 <h4>Avíos</h4>
 
-<table class="table">
-<tr>
-<td>Etiqueta interna</td>
-<td>$ 35.700</td>
-<td><input type="checkbox" checked></td>
-</tr>
-</table>
+<table class="table"></table>
 
-<b>Total avíos: $ 144.900</b>
+<b>Total avíos:</b>
 
 </div>
 
@@ -255,9 +224,10 @@ $ 22.775
 
 </div>
 
-<button class="btn-primary">Activar producción</button>
+<button type="submit" class="btn-primary">Activar producción</button>
 
 </div>
+</form>
 
 <!-- NAV -->
 <div style="display:flex;justify-content:space-between;margin-top:16px">
@@ -272,7 +242,7 @@ $ 22.775
 
 </div>
 
-<script src="../app.js"></script>
+<script src="../js/nuevaproduccion.js"></script>
 
 </body>
 </html>
