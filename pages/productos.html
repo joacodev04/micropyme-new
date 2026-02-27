@@ -58,19 +58,42 @@
 
 <div>
 <h3>Catálogo de productos</h3>
-<p class="hint">Plantillas inteligentes (consumo histórico + defaults).</p>
 </div>
 
-<div class="split between">
+<form id="formProductos" class="form form-telas form-inline">
 
-  <div class="field" style="max-width:320px;">
-    <input class="input" placeholder="Buscar producto...">
+  <div class="field">
+    <input id="producto" type="text" class="input" placeholder="Producto" required>
   </div>
 
-  <button class="btn">+ Producto</button>
+  <div class="field">
+    <input id="tela" type="text" class="input" placeholder="Tela" required>
+  </div>
 
-</div>
+  <div class="field">
+    <input id="consumo" type="text" class="input" placeholder="Consumo Promedio" required>
+  </div>
 
+  <div class="field">
+    <input id="margen" type="text" class="input" placeholder="Margen" required>
+  </div>
+
+  <div class="field">
+    <input id="comisiones" type="text" class="input" placeholder="Comisiones" required>
+  </div>
+
+  <div class="field">
+    <input id="precioVenta" type="text" class="input" placeholder="Precio de venta" required>
+  </div>
+
+  <div class="field">
+    <input id="costoFinal" type="text" class="input" placeholder="Costo final" required>
+  </div>
+
+  <div class="field align-right">
+    <button id="btnProducto" class="btn">+ Producto</button>
+  </div>
+</form>
 </div>
 
 </div>
@@ -82,13 +105,15 @@
 <th>Producto</th>
 <th>Tela default</th>
 <th>Consumo promedio</th>
-<th>Rango</th>
-<th>Precio objetivo</th>
+<th>Margen</th>
+<th>Comisiones</th>
+<th>Precio de venta</th>
+<th>Costo final</th>
 <th>Última actualización</th>
 </tr>
 </thead>
 
-<tbody></tbody>
+<tbody id="tablaProductos"></tbody>
 
 </table>
 
@@ -100,6 +125,6 @@
 
 </div>
 
-<script src="../app.js"></script>
+<script src="../js/productos.js"></script>
 </body>
 </html>
