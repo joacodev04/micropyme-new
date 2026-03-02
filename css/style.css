@@ -17,6 +17,44 @@
   --radius2:22px;
 }
 
+.dark-light {
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  background: var(--panel2);
+  cursor: pointer;
+}
+
+.dark-light img {
+  width: 20px;
+  height: 20px;
+}
+
+body:not(.light) .dark-light img {
+  filter: invert(1);
+}
+
+body.light {
+  --bg:#f4f6fb;
+  --panel:#ffffff;
+  --panel2:#f1f3f9;
+  --card:#ffffff;
+  --muted:#5c6b8a;
+  --text:#0b1020;
+  --soft:#2a3555;
+  --line:rgba(0,0,0,.08);
+  --line2:rgba(0,0,0,.12);
+  --accent:#6a4cff;
+  --accent2:#1db67c;
+  --warn:#e6a800;
+  --bad:#e54866;
+  --shadow: 0 10px 30px rgba(0,0,0,.08);
+}
+
 *{box-sizing:border-box}
 html,body{height:100%}
 body{
@@ -124,7 +162,7 @@ button, input, select, textarea{
 
 .main{
   padding:24px 24px 40px;
-  background-color: black;
+  background-color: var(--bg);
 }
 .topbar{
   display:flex;
@@ -526,19 +564,14 @@ input::placeholder {
 }
 
 .elevador button:hover {
-  background: rgba(255,255,255,.05);
+  background: var(--panel);
   color: #fff;
 }
 
-/* Input número */
 .elevador input {
-  width: 70px;
-  text-align: center;
-  background: #000000;
-  border: 1px solid #000000;
-  border-radius: 14px;
-  padding: 6px;
-  color: #fff;
+  background: var(--panel2);
+  border: 1px solid var(--line);
+  color: var(--text);
 }
 
 /* Quitar flechas nativas */
@@ -664,7 +697,7 @@ hr.sep{
 }
 
 .sidebar{
-  background-color: black;
+  background-color: var(--panel);
 }
 
 .select-tela{
@@ -678,8 +711,8 @@ hr.sep{
 }
 
 select option{
-  background-color: black;
-  color: white;
+  background-color: var(--panel);
+  color: var(--text);
 }
 
 .grid{
