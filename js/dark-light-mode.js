@@ -1,3 +1,5 @@
+let mode = localStorage.getItem("theme") || "dark";
+
 document.addEventListener("DOMContentLoaded", () => {
 
   const botonTema = document.querySelector(".dark-light");
