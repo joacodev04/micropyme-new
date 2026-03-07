@@ -483,13 +483,21 @@ input::placeholder {
 }
 
 .input, .select, .textarea{
-  width: 100%;
+  width: 40%;
   padding:10px 12px;
   border-radius:14px;
   background: var(--input-bg);
   border:1px solid var(--input-border);
   color: var(--text);
   outline:none;
+}
+
+/* Make the "Total procesos" input in the new production step match other input sizing */
+.step-panel b input.input {
+  display: inline-block;
+  width: 140px;
+  max-width: 160px;
+  min-width: 120px;
 }
 
 .step-panel .form .field {
@@ -747,6 +755,7 @@ hr.sep{
 
 .select-tela{
   width:20%;
+  margin-bottom: 15px;
   color: var(--text);
   padding:10px 12px;
   border-radius:14px;

@@ -24,14 +24,48 @@ function renderProductos(){
           </select>
         </td>
 
-        <td></td>
-        <td>${p.costoFinal}</td>
-
+        <td><input class="input" type="text" placeholder="Modalidad"></td>
+        <td><input class="input" type="number" placeholder="Costo"></td>
       </tr>
     `;
 
   });
 
 }
+
+document.addEventListener("blur", function(e){
+
+  if(e.target.classList.contains("input")){
+
+    const input = e.target;
+    const valor = input.value;
+
+    if(valor !== ""){
+
+      const td = input.parentElement;
+
+      td.innerHTML = `<span class="editable">${valor}</span>`;
+
+    }
+
+  }
+
+}, true);
+
+
+document.addEventListener("click", function(e){
+
+  if(e.target.classList.contains("editable")){
+
+    const span = e.target;
+    const valor = span.textContent;
+
+    const td = span.parentElement;
+
+    td.innerHTML = `<input class="input" value="${valor}">`;
+
+  }
+
+});
 
 renderProductos();

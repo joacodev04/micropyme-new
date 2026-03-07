@@ -81,10 +81,10 @@
 
 <div class="form">
 
-<div class="field">
+<!-- <div class="field">
 <div class="label">Consumo histórico sugerido</div>
-<input class="input" value="0,185 kg">
-</div>
+<input class="input" value="0kg">
+</div> -->
 
 <div class="field">
 <div class="label">Merma</div>
@@ -93,7 +93,7 @@
 
 <div class="field">
 <div class="label">Código</div>
-<input class="input" value="PR-00233">
+<input class="input" value="PR-XXXX">
 </div>
 
 </div>
@@ -105,7 +105,7 @@
 <h4>Definí colores y cantidades</h4>
 
 <div class="product-actions">
-    <input type="text" class="input" id="input-color" placeholder="Agregar color" required>
+    <input type="text" class="input" id="input-color" placeholder="Agregar color">
     <button class="btn" id="btn-agregar-color">+ Color</button>
 </div>
 
@@ -121,8 +121,6 @@
 <tbody id="color-texto"></tbody>
 </table>
 
-<b>Total prendas:</b>
-
 </div>
 
 <!-- PASO 3 -->
@@ -135,22 +133,20 @@
 
 <div class="field">
 <div class="label">Consumo kg/prenda</div>
-<input class="input" value="0,185 kg">
+<input class="input" value="0kg">
 </div>
 
 <div class="field">
 <div class="label">Kg por pieza cerrada</div>
-<input class="input" value="25 kg">
+<input class="input" value="0kg">
 </div>
 
 <div class="field">
 <div class="label">Precio/kg</div>
-<input class="input" value="$ 9.800">
+<input class="input" value="$0">
 </div>
 
 </div>
-
-<b>Total tela: $ 1.225.000</b>
 
 </div>
 
@@ -162,18 +158,26 @@
 <table class="table">
 <tr>
 <td>Corte</td>
-<td>$ 520 / prenda</td>
-<td><input type="checkbox" checked></td>
+<td><input type="checkbox"></td>
 </tr>
 
 <tr>
-<td>Confección</td>
-<td>$ 1.650 / prenda</td>
-<td><input type="checkbox" checked></td>
+  <td>Estampado</td>
+  <td><input type="checkbox"></td>
+</tr>
+
+<tr>
+  <td>Confeccion</td>
+  <td><input type="checkbox"></td>
+</tr>
+
+<tr>
+  <td>Finishing</td>
+  <td><input type="checkbox"></td>
 </tr>
 </table>
 
-<b>Total procesos: $ 1.240.200</b>
+<b>Total procesos: <input class="input" type="number" placeholder="$"></b>
 
 </div>
 

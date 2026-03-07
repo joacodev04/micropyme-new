@@ -1,11 +1,14 @@
 //Nueva produccion
 let telas = JSON.parse(localStorage.getItem("telas")) || [];
+let avios = JSON.parse(localStorage.getItem("avios")) || [];
 
 let colores = [];
 let color = document.getElementById("input-color");
 let colorTexto = document.getElementById("color-texto");
 let btnAgregarColor = document.getElementById("btn-agregar-color");
 
+
+//Colores
 btnAgregarColor.addEventListener("click", () => {
 
   if(color.value.trim() === "") return;
@@ -23,6 +26,7 @@ btnAgregarColor.addEventListener("click", () => {
   color.value = "";
 });
 
+//Telas
 const selectTela = document.getElementById("select-tela");
 
 function cargarTelas() {
@@ -37,6 +41,8 @@ function cargarTelas() {
 
 }
 cargarTelas();
+
+//Avios
 
 //Click en pasos (Nueva Produccion)
 
