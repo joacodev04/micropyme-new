@@ -433,6 +433,8 @@ button, input, select, textarea{
   .field{ grid-column: span 12; }
 }
 .label{
+  display: block;
+  margin-bottom: 6px;
   color:var(--muted);
   font-size:12px;
 }
@@ -488,6 +490,20 @@ input::placeholder {
   border:1px solid var(--input-border);
   color: var(--text);
   outline:none;
+}
+
+.step-panel .form .field {
+  max-width: 360px;
+}
+
+.step-panel .input,
+.step-panel .select {
+  max-width: 360px;
+}
+
+.select--small {
+  width: 180px;
+  max-width: 100%;
 }
 .textarea{ min-height:90px; resize:vertical; }
 .help{

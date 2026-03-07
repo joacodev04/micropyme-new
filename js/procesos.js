@@ -1,9 +1,37 @@
-const procesos = [
-    {id: 1, nombre: "Corte"},
-    {id: 2, nombre: "Confeccion"},
-    {id: 3, nombre: "Bordado"},
-    {id: 4, nombre: "Estampado"},
-    {id: 5, nombre: "Finishsing"},
-];
+let productos = JSON.parse(localStorage.getItem("productos")) || []; //Traigo los productos guardados en memoria
 
-localStorage.setItem("procesos", JSON.stringify(procesos));
+const tablaProcesos = document.getElementById("tablaProcesos");
+
+function renderProductos(){
+
+  tablaProcesos.innerHTML = "";
+
+  productos.forEach(p => {
+
+    tablaProcesos.innerHTML += `
+      <tr>
+
+        <td>${p.producto}</td>
+
+        <td>
+          <select class="select select--small">
+            <option value="">Seleccionar proceso</option>
+            <option value="Corte">Corte</option>
+            <option value="Confección">Confección</option>
+            <option value="Bordado">Bordado</option>
+            <option value="Estampado">Estampado</option>
+            <option value="Finishing">Finishing</option>
+          </select>
+        </td>
+
+        <td></td>
+        <td>${p.costoFinal}</td>
+
+      </tr>
+    `;
+
+  });
+
+}
+
+renderProductos();
