@@ -642,6 +642,13 @@ input::placeholder {
   flex-wrap:nowrap;
 }
 
+.total-avios {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 15px;
+}
+
 
 .wizard-steps{
   display:flex;

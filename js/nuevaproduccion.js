@@ -44,6 +44,25 @@ cargarTelas();
 
 //Avios
 
+const tablaAvios = document.getElementById("tabla-avios");
+
+if(tablaAvios){
+
+  avios.forEach(a => {
+
+    tablaAvios.innerHTML += `
+      <tr>
+        <td>${a.nombre}</td>
+        <td>${a.unidad}</td>
+        <td>${a.costo}</td>
+        <td><input type="number" class="input" value="0"></td>
+      </tr>
+    `;
+
+  });
+
+}
+
 //Click en pasos (Nueva Produccion)
 
 let steps = document.querySelectorAll(".step");

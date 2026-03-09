@@ -10,7 +10,7 @@ function renderAvios(){
   avios.forEach(a=>{
     tablaAvios.innerHTML+=`
       <tr>
-        <td><b>${a.nombre}</b></td>
+        <td><b>${a.nombre}</b></td> 
         <td>${a.unidad || '—'}</td>
         <td>$${a.costo}</td>
         <td>${a.proveedor || '—'}</td>
@@ -23,10 +23,26 @@ if(formAvio){
   formAvio.addEventListener("submit",e=>{
     e.preventDefault();
     const i=formAvio.querySelectorAll(".input");
-    avios.push({nombre:i[0].value,unidad:i[1].value,costo:i[2].value,proveedor:i[3].value,notas:i[4].value});
+    avios.push({nombre:i[0].value,unidad:i[1].value,costo:Number(i[2].value),proveedor:i[3].value,notas:i[4].value});
     localStorage.setItem("avios",JSON.stringify(avios));
     renderAvios();
     formAvio.reset();
+    sumarAvios();
   });
   renderAvios();
+  sumarAvios();
 }
+
+//Calcular Total
+function sumarAvios(){
+
+  let total = 0;
+
+  avios.forEach(w => {
+    total += Number(w.costo) || 0;
+  });
+
+  document.getElementById("totalAvio").textContent = "Total avios: $" + total.toFixed(2);
+}
+
+sumarAvios();

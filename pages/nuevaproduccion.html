@@ -81,10 +81,6 @@
 
 <div class="form">
 
-<!-- <div class="field">
-<div class="label">Consumo histórico sugerido</div>
-<input class="input" value="0kg">
-</div> -->
 
 <div class="field">
 <div class="label">Merma</div>
@@ -177,7 +173,7 @@
 </tr>
 </table>
 
-<b>Total procesos: <input class="input" type="number" placeholder="$"></b>
+<!-- <b>Total procesos: <input class="input" type="number" placeholder="$"></b> -->
 
 </div>
 
@@ -186,9 +182,20 @@
 
 <h4>Avíos</h4>
 
-<table class="table"></table>
+<table class="table">
+<thead>
+<tr>
+<th>Avío</th>
+<th>Unidad</th>
+<th>Costo</th>
+<th>Cantidad</th>
+</tr>
+</thead>
 
-<b>Total avíos:</b>
+<tbody id="tabla-avios"></tbody>
+</table>
+
+<!-- <b class="total-avios">Total avíos:</b> -->
 
 </div>
 
