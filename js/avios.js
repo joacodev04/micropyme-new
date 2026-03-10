@@ -12,7 +12,7 @@ function renderAvios(){
       <tr>
         <td><b>${a.nombre}</b></td> 
         <td>${a.unidad || '—'}</td>
-        <td>$${a.costo}</td>
+        <td>$${a.costo || 0}</td>
         <td>${a.proveedor || '—'}</td>
         <td>${a.notas || ''}</td>
       </tr>`;

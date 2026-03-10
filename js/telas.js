@@ -11,8 +11,8 @@ function renderTelas(){
     tablaTelas.innerHTML+=`
       <tr>
         <td><b>${t.nombre}</b></td>
-        <td>$${t.precio}</td>
-        <td>${t.kg}</td>
+        <td>$${t.precio || 0}</td>
+        <td>${t.kg || 0}</td>
         <td>${t.proveedor || '—'}</td>
         <td>${t.notas}</td>
       </tr>`;

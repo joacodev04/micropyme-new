@@ -76,7 +76,7 @@
 <h4>Producto</h4>
 
 <div class="product-actions">
-  <input type="text" class="input" placeholder="Nombre del Producto" required>
+  <input type="text" id="nombre-producto" class="input" placeholder="Nombre del Producto" required>
 </div>
 
 <div class="form">
@@ -84,16 +84,19 @@
 
 <div class="field">
 <div class="label">Merma</div>
-<input class="input" value="5%">
+<input id="merma" class="input" value="5%">
+<button type="button" class="btnSiguiente">Siguiente</button>
 </div>
 
 <div class="field">
 <div class="label">Código</div>
-<input class="input" value="PR-XXXX">
+<input id="codigo" class="input" value="PR-XXXX">
+
 </div>
 
 </div>
 </div>
+
 
 <!-- PASO 2 -->
 <div class="step-panel">
@@ -102,7 +105,7 @@
 
 <div class="product-actions">
     <input type="text" class="input" id="input-color" placeholder="Agregar color">
-    <button class="btn" id="btn-agregar-color">+ Color</button>
+    <button type="button" class="btn" id="btn-agregar-color">+ Color</button>
 </div>
 
 <table class="table">
@@ -117,13 +120,17 @@
 <tbody id="color-texto"></tbody>
 </table>
 
+<button type="button" class="btnSiguiente">Siguiente</button>
+
 </div>
 
 <!-- PASO 3 -->
 <div class="step-panel">
 
 <h4>Seleccionar tela</h4>
+
 <select class="select-tela" id="select-tela"></select>
+
 
 <div class="form">
 
@@ -144,6 +151,8 @@
 
 </div>
 
+<button type="button" class="btnSiguiente">Siguiente</button>
+
 </div>
 
 <!-- PASO 4 -->
@@ -154,26 +163,26 @@
 <table class="table">
 <tr>
 <td>Corte</td>
-<td><input type="checkbox"></td>
+<td><input id="corte" type="checkbox"></td>
 </tr>
 
 <tr>
   <td>Estampado</td>
-  <td><input type="checkbox"></td>
+  <td><input id="estampado" type="checkbox"></td>
 </tr>
 
 <tr>
   <td>Confeccion</td>
-  <td><input type="checkbox"></td>
+  <td><input id="confeccion" type="checkbox"></td>
 </tr>
 
 <tr>
   <td>Finishing</td>
-  <td><input type="checkbox"></td>
+  <td><input id="finishing" type="checkbox"></td>
 </tr>
 </table>
 
-<!-- <b>Total procesos: <input class="input" type="number" placeholder="$"></b> -->
+<button type="button" class="btnSiguiente">Siguiente</button>
 
 </div>
 
@@ -195,7 +204,7 @@
 <tbody id="tabla-avios"></tbody>
 </table>
 
-<!-- <b class="total-avios">Total avíos:</b> -->
+<button type="button" class="btnSiguiente">Siguiente</button>
 
 </div>
 
@@ -230,7 +239,7 @@ $ 22.775
 
 </div>
 
-<button type="submit" class="btn-primary">Activar producción</button>
+<button type="submit" id="activar-produccion" class="btn-primary">Activar producción</button>
 
 </div>
 </form>

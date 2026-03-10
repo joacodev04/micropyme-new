@@ -266,6 +266,7 @@ button, input, select, textarea{
 .btn:hover{ background: rgba(255,255,255,.08); }
 .btn:active{ transform: translateY(1px); }
 .btn-primary{
+  margin-top: 30px;
   border-radius: 15px;
   padding: 10px;
   text-align: end;
@@ -443,6 +444,19 @@ input::placeholder {
   font-size: 15px;
 }
 
+.btnSiguiente {
+  border: none;
+  cursor: pointer;
+  margin-top: 25px;
+  align-self: flex-start;
+  padding: 5px 14px;
+  font-size: 15px;
+  line-height: 1;    
+  border-radius: 6px;  
+  background: rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.10);
+  transition: transform .05s ease;
+}
 
 .form-inline{
   display:flex;
@@ -492,7 +506,7 @@ input::placeholder {
   outline:none;
 }
 
-/* Make the "Total procesos" input in the new production step match other input sizing */
+
 .step-panel b input.input {
   display: inline-block;
   width: 140px;
@@ -591,9 +605,10 @@ input::placeholder {
 
 .align-right{
   grid-column: span 12;
-  display: flex;
-  gap: 20px;
-  justify-content: flex-end;
+  display:flex;
+  justify-content:flex-end;
+  align-items:center; /* ← esto lo centra verticalmente */
+  gap:10px;
 }
 
 /* ===== CONTENEDOR + - ===== */
