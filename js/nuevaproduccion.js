@@ -43,7 +43,6 @@ function cargarTelas() {
 cargarTelas();
 
 //Avios
-
 const tablaAvios = document.getElementById("tabla-avios");
 
 if(tablaAvios){
@@ -202,7 +201,20 @@ function renderResumen() {
   `;
 }
 
+const btnActivar = document.getElementById("activar-produccion");
 
+if (btnActivar) {
+  btnActivar.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    if (window.Swal) {
+      Swal.fire({
+        title: "Produccion activada!",
+        icon: "success",
+      });
+    }
+  });
+}
 
 //Click en pasos (Nueva Produccion)
 
