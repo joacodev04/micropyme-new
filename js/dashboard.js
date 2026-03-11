@@ -14,3 +14,13 @@ window.addEventListener("DOMContentLoaded", () => {
     </tr>
   `).join("");
 });
+
+//Producciones activas
+
+window.addEventListener("DOMContentLoaded", () => {
+  const el = document.getElementById("producciones-activas");
+  if (!el) return;
+
+  const lista = JSON.parse(localStorage.getItem("producciones") || "[]");
+  el.textContent = lista.length;
+});

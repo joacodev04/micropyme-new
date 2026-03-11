@@ -1014,7 +1014,7 @@ select option{
     width: 100%;
   }
   
-  /* Wizard steps wrap properly */
+
   .wizard-steps {
     flex-wrap: wrap;
   }
@@ -1024,12 +1024,12 @@ select option{
     justify-content: center;
   }
   
-  /* Cards more padding on mobile */
+
   .card {
     padding: 16px;
   }
   
-  /* Product actions full width */
+
   .product-actions {
     flex-direction: column;
     width: 100%;
@@ -1045,17 +1045,14 @@ select option{
     width: 100%;
   }
   
-  /* Select tela full width */
   .select-tela {
     width: 100%;
   }
-  
-  /* Input fields full width */
+
   .input, .select, .textarea {
     width: 100%;
   }
   
-  /* Form telas - stack on mobile */
   .form-telas {
     grid-template-columns: 1fr;
   }
@@ -1064,12 +1061,10 @@ select option{
     grid-column: span 1;
   }
   
-  /* Elevador (quantity controls) */
   .elevador {
     flex-wrap: wrap;
   }
   
-  /* Split layouts */
   .split {
     flex-direction: column;
   }
@@ -1089,7 +1084,6 @@ select option{
   }
 }
 
-/* Small mobile */
 @media (max-width: 480px) {
   .main {
     padding: 12px;
@@ -1114,7 +1108,6 @@ select option{
     border-radius: 14px;
   }
   
-  /* KPI row - single column */
   .kpi-row {
     grid-template-columns: 1fr;
   }
@@ -1127,12 +1120,10 @@ select option{
     font-size: 20px;
   }
   
-  /* Step panels */
   .step-panel h4 {
     font-size: 16px;
   }
   
-  /* Table responsive wrapper */
   .table-wrapper {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
@@ -1156,7 +1147,6 @@ select option{
     padding: 12px;
   }
   
-  /* Topbar actions */
   .topbar .actions {
     width: 100%;
   }
@@ -1184,7 +1174,6 @@ select option{
   min-width: 500px;
 }
 
-/* Make tables scrollable on mobile */
 @media (max-width: 768px) {
   .table-wrapper {
     display: block;
@@ -1193,10 +1182,9 @@ select option{
   }
 }
 
-/* Better input sizing for touch */
 @media (max-width: 768px) {
   input, select, textarea {
-    font-size: 16px; /* Prevents zoom on iOS */
+    font-size: 16px;
     min-height: 44px;
   }
   
@@ -1204,14 +1192,12 @@ select option{
     padding: 12px 14px;
   }
   
-  /* Labels more visible on mobile */
   .label {
     font-size: 13px;
     margin-bottom: 8px;
   }
 }
 
-/* Dark/Light mode adjustments for mobile */
 @media (max-width: 768px) {
   body.light .sidebar {
     box-shadow: 4px 0 20px rgba(0, 0, 0, 0.1);
@@ -1222,7 +1208,6 @@ select option{
   }
 }
 
-/* Print styles */
 @media print {
   .sidebar,
   .menu-toggle,

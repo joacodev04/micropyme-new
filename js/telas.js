@@ -33,7 +33,7 @@ if(formTela){
   sumarTabla();  
 }
 
-//Calcular total (precio por kg * kg por pieza)
+//Calcular total
 function sumarTabla(){
 
   let total = 0;
