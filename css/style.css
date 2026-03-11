@@ -445,14 +445,15 @@ input::placeholder {
 }
 
 .btnSiguiente {
-  border: none;
+  border: solid, 4px;
   cursor: pointer;
   margin-top: 25px;
   align-self: flex-start;
-  padding: 5px 14px;
+  padding: 5px 15px;
   font-size: 15px;
+  font-weight: 500;
   line-height: 1;    
-  border-radius: 6px;  
+  border-radius: 10px;  
   background: rgba(255,255,255,.06);
   border:1px solid rgba(255,255,255,.10);
   transition: transform .05s ease;

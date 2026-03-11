@@ -1,1 +1,2 @@
-let producciones = JSON.parse(localStorage.getItem("producciones")) || [];
+const actual = JSON.parse(localStorage.getItem(KEY_ACTUAL)) || {};
+

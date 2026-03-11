@@ -187,6 +187,22 @@ window.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+//Resumen
+function renderResumen() {
+  const actual = JSON.parse(localStorage.getItem(KEY_ACTUAL)) || {};
+  const tbody = document.getElementById("tabla-resumen");
+  if (!tbody) return;
+
+  tbody.innerHTML = `
+    <tr><td>Codigo</td><td>${producciones.codigo || "-"}</td></tr>
+    <tr><td>Producto</td><td>${producciones.producto || "-"}</td></tr>
+    <tr><td>Tela</td><td>${producciones.telaNombre || "-"}</td></tr>
+    <tr><td>Procesos</td><td>${(producciones.procesos || []).join(", ") || "-"}</td></tr>
+    <tr><td>Avios</td><td>${(actual.avios || []).map(a => `${a.avio} x${a.cantidad}`).join(", ") || "-"}</td></tr>
+  `;
+}
+
+
 
 //Click en pasos (Nueva Produccion)
 
@@ -213,6 +229,8 @@ function showStep(index){
   });
 
   currentStep = index;
+
+  if (index === 5) renderResumen();
 }
 
 document.querySelectorAll(".btnSiguiente").forEach(btn => {
