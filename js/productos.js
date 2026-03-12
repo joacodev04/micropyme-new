@@ -37,7 +37,7 @@ function renderProductos() {
     tabla.innerHTML += `
       <tr>
         <td><b>${p.producto}</b></td>
-        <td>$${p.tela}</td>
+        <td>${p.tela}</td>
         <td>${p.consumo}</td>
         <td>${p.margen}</td>
         <td>${p.comisiones}</td>

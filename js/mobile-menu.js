@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function() {
   menuToggle.addEventListener('click', toggleMenu);
   overlay.addEventListener('click', closeMenu);
 
-  // Close menu when clicking nav links (mobile)
+  //Cerra menu cuando hacen click (mobile)
   navLinks.forEach(link => {
     link.addEventListener('click', function() {
       if (window.innerWidth <= 1024) {
