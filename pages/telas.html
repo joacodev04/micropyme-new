@@ -1,128 +1,163 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MicroPyme Production</title>
-<link rel="stylesheet" href="../css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TelaPro | Telas</title>
+  <link rel="stylesheet" href="../css/style.css">
 </head>
-
 <body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="logo"></div>
+        <div class="brand-copy">
+          <h1>TelaPro</h1>
+          <p>Control de produccion textil</p>
+        </div>
+        <button class="dark-light" type="button" aria-label="Cambiar tema">
+          <img src="../img/dark_mode_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg" alt="">
+        </button>
+      </div>
 
-<div class="app-shell">
+      <nav class="nav">
+        <a href="../index.html">Dashboard</a>
+        <a href="ordenes.html">Ordenes</a>
+        <a href="nuevaproduccion.html">Nueva produccion</a>
 
-<!-- SIDEBAR -->
-<aside class="sidebar">
+        <div class="group"></div>
 
-  <div class="brand">
-    <div class="logo"></div>
-    <div>
-      <h1>Production OS</h1>
-      <p>Micropyme Textil • Mock UI</p>
-      <button class="dark-light">
-        <img src="../img/dark_mode_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg" alt="">
-      </button>
-    </div>
+        <a href="productos.html">Productos</a>
+        <a href="telas.html" class="active">Telas</a>
+        <a href="avios.html">Insumos</a>
+        <a href="procesos.html">Procesos</a>
+      </nav>
+    </aside>
+
+    <main class="main">
+      <div class="container">
+        <div class="topbar">
+          <div>
+            <h2 class="page-title">Stock de telas</h2>
+            <p class="subtitle">Stock real, minimo, consumo comprometido y alertas de reposicion.</p>
+          </div>
+        </div>
+
+        <div class="grid">
+          <section class="card metric-card col-4">
+            <span class="metric-label">Stock total</span>
+            <strong id="telas-total-stock" class="metric-value">0 kg</strong>
+            <p class="metric-copy">Suma del stock cargado en catalogo.</p>
+          </section>
+
+          <section class="card metric-card col-4">
+            <span class="metric-label">Comprometido</span>
+            <strong id="telas-total-comprometido" class="metric-value">0 kg</strong>
+            <p class="metric-copy">Reservado por ordenes activas.</p>
+          </section>
+
+          <section class="card metric-card col-4">
+            <span class="metric-label">Alertas</span>
+            <strong id="telas-total-alertas" class="metric-value">0</strong>
+            <p class="metric-copy">Materiales por debajo del umbral proyectado.</p>
+          </section>
+
+          <section class="card col-7">
+            <div class="section-head">
+              <div>
+                <h3>Alta de telas</h3>
+                <p class="hint">Ademas del costo y pieza cerrada, ahora puedes cargar stock real y minimo.</p>
+              </div>
+            </div>
+
+            <form id="formTela" class="form">
+              <div class="field">
+                <label class="label" for="tela-nombre">Tela</label>
+                <input id="tela-nombre" type="text" class="input" placeholder="Ej: Rib 24/1" required>
+              </div>
+
+              <div class="field">
+                <label class="label" for="tela-precio">Precio por kg</label>
+                <input id="tela-precio" type="number" min="0" step="0.01" class="input" placeholder="5200" required>
+              </div>
+
+              <div class="field">
+                <label class="label" for="tela-pieza">Kg por pieza cerrada</label>
+                <input id="tela-pieza" type="number" min="0" step="0.01" class="input" placeholder="24" required>
+              </div>
+
+              <div class="field">
+                <label class="label" for="tela-stock">Stock actual (kg)</label>
+                <input id="tela-stock" type="number" min="0" step="0.01" class="input" placeholder="80" required>
+              </div>
+
+              <div class="field">
+                <label class="label" for="tela-minimo">Stock minimo (kg)</label>
+                <input id="tela-minimo" type="number" min="0" step="0.01" class="input" placeholder="18" required>
+              </div>
+
+              <div class="field">
+                <label class="label" for="tela-proveedor">Proveedor</label>
+                <input id="tela-proveedor" type="text" class="input" placeholder="Proveedor principal">
+              </div>
+
+              <div class="field full">
+                <label class="label" for="tela-notas">Notas</label>
+                <textarea id="tela-notas" class="textarea" placeholder="Calidad, ancho, lote o comentarios"></textarea>
+              </div>
+
+              <div class="align-right">
+                <button class="btn primary" type="submit">+ Guardar tela</button>
+              </div>
+            </form>
+          </section>
+
+          <section class="card col-5">
+            <div class="section-head">
+              <div>
+                <h3>Alertas</h3>
+                <p class="hint">Prioridad de reposicion segun el stock disponible proyectado.</p>
+              </div>
+            </div>
+
+            <div id="lista-alertas-telas" class="alert-stack"></div>
+          </section>
+
+          <section class="card">
+            <div class="section-head">
+              <div>
+                <h3>Catalogo de telas</h3>
+                <p class="hint">Vista consolidada con stock, consumo activo y nivel de riesgo.</p>
+              </div>
+            </div>
+
+            <div class="table-wrapper">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Tela</th>
+                    <th>Precio/kg</th>
+                    <th>Pieza cerrada</th>
+                    <th>Stock</th>
+                    <th>Minimo</th>
+                    <th>Comprometido</th>
+                    <th>Disponible</th>
+                    <th>Nivel</th>
+                    <th>Proveedor</th>
+                  </tr>
+                </thead>
+                <tbody id="tablaTelas"></tbody>
+              </table>
+            </div>
+          </section>
+        </div>
+      </div>
+    </main>
   </div>
 
-  <nav class="nav">
-
-    <a href="../index.html"> ⎈ Dashboard</a>
-    <a href="nuevaproduccion.html"> + Nueva Producción</a>
-
-    <div class="group"></div>
-
-    <a href="productos.html"> ▦ Productos</a>
-    <a href="telas.html" class="active"> ◐ Telas</a>
-    <a href="avios.html"> ⌁ Avíos</a>
-    <a href="procesos.html"> □ Procesos</a>
-
-    <div class="group"></div>
-
-  </nav>
-
-</aside>
-
-<!-- MAIN -->
-<main class="main">
-<div class="container">
-
-<div class="topbar">
-  <div>
-    <h2 class="page-title">Telas</h2>
-    <p class="subtitle">Catálogo de telas + reglas de piezas cerradas</p>
-  </div>
-</div>
-
-<div class="grid">
-<section class="card">
-
-<div class="split" style="align-items:flex-start">
-
-<div>
-  <h3>Telas</h3>
-  <p class="hint">Catálogo con reglas de compra por piezas cerradas.</p>
-</div>
-
-<form id="formTela" class="form form-telas form-inline">
-
-  <div class="field">
-    <input type="text" class="input" placeholder="Tela" required>
-  </div>
-
-  <div class="field">
-    <input type="text" class="input" placeholder="Precio/Kg" required>
-  </div>
-
-  <div class="field">
-    <input type="text" class="input" placeholder="Kg por pieza" required>
-  </div>
-
-  <div class="field">
-    <input type="text" class="input" placeholder="Proveedor" required>
-  </div>
-
-  <div class="field">
-    <input type="text" class="input" placeholder="Notas" required>
-  </div>
-
-  <div class="field align-right">
-    <button class="btn">+ Tela</button>
-  </div>
-
-</form>
-
-</div>
-
-<table class="table" style="margin-top:12px">
-
-<thead>
-<tr>
-<th>Tela</th>
-<th>Precio/kg</th>
-<th>Kg por pieza cerrada</th>
-<th>Proveedor</th>
-<th>Notas</th>
-</tr>
-</thead>
-
-<tbody id="tablaTelas"></tbody>
-
-</table>
-
-<p><span id="totalTela">$0</span></p>
-
-</section>
-</div>
-
-</div>
-</main>
-
-</div>
-
-<script src="../js/dark-light-mode.js"></script>
-<script src="../js/telas.js"></script>
-<script src="../js/mobile-menu.js"></script>
-
+  <script src="../js/data-store.js"></script>
+  <script src="../js/dark-light-mode.js"></script>
+  <script src="../js/telas.js"></script>
+  <script src="../js/mobile-menu.js"></script>
 </body>
 </html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TelaPro | Ordenes</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="logo"></div>
+        <div class="brand-copy">
+          <h1>TelaPro</h1>
+          <p>Control de produccion textil</p>
+        </div>
+        <button class="dark-light" type="button" aria-label="Cambiar tema">
+          <img src="../img/dark_mode_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg" alt="">
+        </button>
+      </div>
+
+      <nav class="nav">
+        <a href="../index.html">Dashboard</a>
+        <a href="ordenes.html" class="active">Ordenes</a>
+        <a href="nuevaproduccion.html">Nueva produccion</a>
+
+        <div class="group"></div>
+
+        <a href="productos.html">Productos</a>
+        <a href="telas.html">Telas</a>
+        <a href="avios.html">Insumos</a>
+        <a href="procesos.html">Procesos</a>
+      </nav>
+    </aside>
+
+    <main class="main">
+      <div class="container">
+        <div class="topbar">
+          <div>
+            <h2 class="page-title">Seguimiento de ordenes</h2>
+            <p class="subtitle">Estado por prenda, filtros de produccion e historial consolidado de movimientos.</p>
+          </div>
+
+          <div class="actions">
+            <a href="nuevaproduccion.html" class="btn primary">+ Nueva orden</a>
+          </div>
+        </div>
+
+        <div class="grid">
+          <section class="card metric-card col-3">
+            <span class="metric-label">Activas</span>
+            <strong id="ordenes-activas" class="metric-value">0</strong>
+            <p class="metric-copy">Ordenes con trabajo en curso.</p>
+          </section>
+
+          <section class="card metric-card col-3">
+            <span class="metric-label">Terminadas</span>
+            <strong id="ordenes-terminadas" class="metric-value">0</strong>
+            <p class="metric-copy">Ordenes cerradas en todo el flujo.</p>
+          </section>
+
+          <section class="card metric-card col-3">
+            <span class="metric-label">Prendas activas</span>
+            <strong id="ordenes-prendas" class="metric-value">0</strong>
+            <p class="metric-copy">Lotes hoy visibles en seguimiento.</p>
+          </section>
+
+          <section class="card metric-card col-3">
+            <span class="metric-label">Eventos</span>
+            <strong id="ordenes-historial" class="metric-value">0</strong>
+            <p class="metric-copy">Movimientos historicos registrados.</p>
+          </section>
+
+          <section class="card">
+            <div class="section-head">
+              <div>
+                <h3>Tablero de ordenes</h3>
+                <p class="hint">Actualiza el estado individual de cada prenda y el historial se registra solo.</p>
+              </div>
+            </div>
+
+            <div class="filter-bar">
+              <button type="button" class="filter-btn active" data-filter="activas">Activas</button>
+              <button type="button" class="filter-btn" data-filter="todas">Todas</button>
+              <button type="button" class="filter-btn" data-filter="terminadas">Terminadas</button>
+            </div>
+
+            <div id="ordenes-grid" class="order-grid"></div>
+          </section>
+
+          <section class="card">
+            <div class="section-head">
+              <div>
+                <h3>Historial de produccion</h3>
+                <p class="hint">Linea de tiempo de altas y cambios de estado.</p>
+              </div>
+            </div>
+
+            <div class="table-wrapper">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Codigo</th>
+                    <th>Producto</th>
+                    <th>Accion</th>
+                    <th>Detalle</th>
+                    <th>Fecha</th>
+                  </tr>
+                </thead>
+                <tbody id="tabla-historial"></tbody>
+              </table>
+            </div>
+          </section>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="../js/data-store.js"></script>
+  <script src="../js/dark-light-mode.js"></script>
+  <script src="../js/ordenes.js"></script>
+  <script src="../js/mobile-menu.js"></script>
+</body>
+</html>

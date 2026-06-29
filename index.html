@@ -1,147 +1,213 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="css/style.css">
-<title>MicroPyme Production</title>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TelaPro | Dashboard</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="logo"></div>
+        <div class="brand-copy">
+          <h1>TelaPro</h1>
+          <p>Control de produccion textil</p>
+        </div>
+        <button class="dark-light" type="button" aria-label="Cambiar tema">
+          <img src="img/dark_mode_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg" alt="">
+        </button>
+      </div>
 
-<div class="app-shell">
+      <nav class="nav">
+        <a href="index.html" class="active">Dashboard</a>
+        <a href="pages/ordenes.html">Ordenes</a>
+        <a href="pages/nuevaproduccion.html">Nueva produccion</a>
 
-<!-- SIDEBAR -->
-<aside class="sidebar">
+        <div class="group"></div>
 
-  <div class="brand">
-    <div class="logo"></div>
-    <div>
-      <h1>Production OS</h1>
-      <button class="dark-light">
-        <img src="img/dark_mode_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg" alt="">
-      </button>
-      <p>Micropyme Textil • Mock UI</p>
-    </div>
+        <a href="pages/productos.html">Productos</a>
+        <a href="pages/telas.html">Telas</a>
+        <a href="pages/avios.html">Insumos</a>
+        <a href="pages/procesos.html">Procesos</a>
+      </nav>
+    </aside>
+
+    <main class="main">
+      <div class="container">
+        <div class="topbar">
+          <div class="left">
+            <div>
+              <h2 class="page-title">Dashboard operativo</h2>
+              <p class="subtitle">Ordenes activas, estado por prenda, stock proyectado e historial reciente.</p>
+            </div>
+          </div>
+
+          <div class="actions">
+            <a href="pages/ordenes.html" class="btn">Ver seguimiento</a>
+            <a href="pages/nuevaproduccion.html" class="btn primary">+ Nueva orden</a>
+          </div>
+        </div>
+
+        <div class="grid">
+          <section class="card hero-panel">
+            <div class="hero-grid">
+              <div>
+                <span class="eyebrow">Panel ejecutivo</span>
+                <h3>Produccion, stock y alertas en una sola vista</h3>
+                <p class="hero-copy">El dashboard ahora resume ordenes de produccion, avance por prenda, materiales comprometidos y cambios recientes para decidir rapido.</p>
+              </div>
+
+              <div class="hero-actions">
+                <a href="pages/telas.html" class="btn">Gestionar telas</a>
+                <a href="pages/avios.html" class="btn">Gestionar insumos</a>
+              </div>
+            </div>
+          </section>
+
+          <section class="card metric-card col-4">
+            <span class="metric-label">Ordenes activas</span>
+            <strong id="producciones-activas" class="metric-value">0</strong>
+            <p class="metric-copy">Producciones actualmente en curso.</p>
+          </section>
+
+          <section class="card metric-card col-4">
+            <span class="metric-label">Prendas en curso</span>
+            <strong id="prendas-en-curso" class="metric-value">0</strong>
+            <p class="metric-copy">Lotes o variantes con seguimiento individual.</p>
+          </section>
+
+          <section class="card metric-card col-4">
+            <span class="metric-label">Ordenes terminadas</span>
+            <strong id="producciones-terminadas" class="metric-value">0</strong>
+            <p class="metric-copy">Producciones que ya cerraron todo el flujo.</p>
+          </section>
+
+          <section class="card metric-card col-4">
+            <span class="metric-label">Materiales criticos</span>
+            <strong id="materiales-criticos" class="metric-value">0</strong>
+            <p class="metric-copy">Telas o insumos con reposicion urgente.</p>
+          </section>
+
+          <section class="card metric-card col-4">
+            <span class="metric-label">Tela comprometida</span>
+            <strong id="tela-comprometida" class="metric-value">0 kg</strong>
+            <p class="metric-copy">Consumo proyectado en ordenes activas.</p>
+          </section>
+
+          <section class="card metric-card col-4">
+            <span class="metric-label">Avios comprometidos</span>
+            <strong id="avios-comprometidos" class="metric-value">0</strong>
+            <p class="metric-copy">Insumos reservados por las ordenes vigentes.</p>
+          </section>
+
+          <section class="card col-7">
+            <div class="section-head">
+              <div>
+                <h3>Ordenes activas</h3>
+                <p class="hint">Seguimiento en vivo del estado general y avance promedio.</p>
+              </div>
+              <a href="pages/ordenes.html" class="btn">Abrir tablero</a>
+            </div>
+
+            <div class="table-wrapper">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Codigo</th>
+                    <th>Producto</th>
+                    <th>Cliente</th>
+                    <th>Entrega</th>
+                    <th>Volumen</th>
+                    <th>Estado</th>
+                    <th>Avance</th>
+                  </tr>
+                </thead>
+                <tbody id="tabla-dash"></tbody>
+              </table>
+            </div>
+          </section>
+
+          <section class="card col-5">
+            <div class="section-head">
+              <div>
+                <h3>Alertas de stock</h3>
+                <p class="hint">Se calculan con el stock cargado menos lo comprometido por ordenes activas.</p>
+              </div>
+            </div>
+
+            <div id="lista-alertas" class="alert-stack"></div>
+          </section>
+
+          <section class="card col-6">
+            <div class="section-head">
+              <div>
+                <h3>Stock de telas</h3>
+                <p class="hint">Vista rapida del stock proyectado mas sensible.</p>
+              </div>
+              <a href="pages/telas.html" class="btn">Ver telas</a>
+            </div>
+
+            <div class="table-wrapper">
+              <table class="table table-compact">
+                <thead>
+                  <tr>
+                    <th>Tela</th>
+                    <th>Stock</th>
+                    <th>Comprometido</th>
+                    <th>Disponible</th>
+                    <th>Nivel</th>
+                  </tr>
+                </thead>
+                <tbody id="tabla-stock-telas"></tbody>
+              </table>
+            </div>
+          </section>
+
+          <section class="card col-6">
+            <div class="section-head">
+              <div>
+                <h3>Stock de insumos</h3>
+                <p class="hint">Seguimiento rapido de hilos, cierres, botones y demas avios.</p>
+              </div>
+              <a href="pages/avios.html" class="btn">Ver insumos</a>
+            </div>
+
+            <div class="table-wrapper">
+              <table class="table table-compact">
+                <thead>
+                  <tr>
+                    <th>Insumo</th>
+                    <th>Stock</th>
+                    <th>Comprometido</th>
+                    <th>Disponible</th>
+                    <th>Nivel</th>
+                  </tr>
+                </thead>
+                <tbody id="tabla-stock-avios"></tbody>
+              </table>
+            </div>
+          </section>
+
+          <section class="card">
+            <div class="section-head">
+              <div>
+                <h3>Historial reciente</h3>
+                <p class="hint">Cada cambio de estado queda registrado automaticamente.</p>
+              </div>
+            </div>
+
+            <div id="timeline-historial" class="timeline"></div>
+          </section>
+        </div>
+      </div>
+    </main>
   </div>
 
-  <nav class="nav">
-
-    <a href="index.html" class="active" > ⎈ Dashboard</a>
-    <a href="pages/nuevaproduccion.html" > + Nueva Producción</a>
-
-    <div class="group"></div>
-
-    <a href="pages/productos.html"> ▦ Productos</a>
-    <a href="pages/telas.html"> ◐ Telas</a>
-    <a href="pages/avios.html"> ⌁ Avíos</a>
-    <a href="pages/procesos.html"> □ Procesos</a>
-
-
-  </nav>
-
-</aside>
-
-<!-- MAIN -->
-<main class="main">
-<div class="container">
-
-<!-- TOPBAR -->
-<div class="topbar">
-  <div>
-    <h2 class="page-title">Dashboard</h2>
-    <p class="subtitle">Vista CEO • estado general de la operación</p>
-  </div>
-
-  <div class="actions">
-    <a href="pages/nuevaproduccion.html" class="btn"> + Nueva Producción</a>
-  </div>
-</div>
-
-<!-- CARDS -->
-<div class="grid">
-
-<!-- KPI -->
-<section class="card">
-
-<h3>Resumen CEO</h3>
-
-<div class="kpi-row">
-
-<div class="kpi">
-  <div class="label">Producciones activas</div>
-  <div id="producciones-activas" class="value"></div>
-</div>
-
-<div class="kpi">
-  <div class="label">Plata comprometida</div>
-  <div class="value">$</div>
-</div>
-
-</div>
-</section>
-
-<!-- PRODUCCIONES -->
-<section class="card">
-
-<h3>Producciones activas</h3>
-
-<table class="table">
-<thead>
-<tr>
-<th>Código</th>
-<th>Producto</th>
-<th>Tela</th>
-<th>Proceso</th>
-<th>Avio</th>
-</tr>
-</thead>
-
-<tbody id="tabla-dash"></tbody>
-
-</table>
-
-</section>
-
-<!-- PROXIMAS
-<section class="card">
-
-<h3>Próximas producciones</h3>
-<p class="hint">Lo que entra a fábrica después.</p>
-
-<div class="split">
-
-<div>
-  <div class="label">En cola</div>
-  <div style="margin-top:8px;color:var(--muted)">1 producción planificada</div>
-  <div class="progress" style="margin-top:10px">
-    <div style="width:20%"></div>
-  </div>
-</div>
-
-<div>
-  <div class="label">Sugerencia del sistema</div>
-  <div style="margin-top:8px">
-    <span class="pill warn">Atención</span>
-    Completar costos y compras antes de pasar a <b>EN PROCESO</b>.
-  </div>
-</div> -->
-
-</div>
-
-</section>
-
-</div>
-
-</div>
-</main>
-
-</div>
-
-<script src="js/dashboard.js"></script>
-<script src="js/dark-light-mode.js" defer></script>
-<script src="js/mobile-menu.js"></script>
-
+  <script src="js/data-store.js"></script>
+  <script src="js/dashboard.js"></script>
+  <script src="js/dark-light-mode.js" defer></script>
+  <script src="js/mobile-menu.js"></script>
 </body>
 </html>

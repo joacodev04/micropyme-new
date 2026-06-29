@@ -1,130 +1,163 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MicroPyme Production</title>
-<link rel="stylesheet" href="../css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TelaPro | Insumos</title>
+  <link rel="stylesheet" href="../css/style.css">
 </head>
-
 <body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="logo"></div>
+        <div class="brand-copy">
+          <h1>TelaPro</h1>
+          <p>Control de produccion textil</p>
+        </div>
+        <button class="dark-light" type="button" aria-label="Cambiar tema">
+          <img src="../img/dark_mode_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg" alt="">
+        </button>
+      </div>
 
-<div class="app-shell">
+      <nav class="nav">
+        <a href="../index.html">Dashboard</a>
+        <a href="ordenes.html">Ordenes</a>
+        <a href="nuevaproduccion.html">Nueva produccion</a>
 
-<!-- SIDEBAR -->
-<aside class="sidebar">
+        <div class="group"></div>
 
-  <div class="brand">
-    <div class="logo"></div>
-    <div>
-      <h1>Production OS</h1>
-      <p>Micropyme Textil • Mock UI</p>
-      <button class="dark-light">
-        <img src="../img/dark_mode_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg" alt="">
-      </button>
-    </div>
+        <a href="productos.html">Productos</a>
+        <a href="telas.html">Telas</a>
+        <a href="avios.html" class="active">Insumos</a>
+        <a href="procesos.html">Procesos</a>
+      </nav>
+    </aside>
+
+    <main class="main">
+      <div class="container">
+        <div class="topbar">
+          <div>
+            <h2 class="page-title">Stock de insumos</h2>
+            <p class="subtitle">Control de hilos, cierres, botones, etiquetas y cualquier avio critico.</p>
+          </div>
+        </div>
+
+        <div class="grid">
+          <section class="card metric-card col-4">
+            <span class="metric-label">Stock total</span>
+            <strong id="avios-total-stock" class="metric-value">0</strong>
+            <p class="metric-copy">Suma del stock cargado para todos los insumos.</p>
+          </section>
+
+          <section class="card metric-card col-4">
+            <span class="metric-label">Comprometido</span>
+            <strong id="avios-total-comprometido" class="metric-value">0</strong>
+            <p class="metric-copy">Reservado por ordenes activas.</p>
+          </section>
+
+          <section class="card metric-card col-4">
+            <span class="metric-label">Alertas</span>
+            <strong id="avios-total-alertas" class="metric-value">0</strong>
+            <p class="metric-copy">Insumos en riesgo segun el stock proyectado.</p>
+          </section>
+
+          <section class="card col-7">
+            <div class="section-head">
+              <div>
+                <h3>Alta de insumos</h3>
+                <p class="hint">Carga unidad, costo, stock y minimo para automatizar alertas.</p>
+              </div>
+            </div>
+
+            <form id="formAvio" class="form">
+              <div class="field">
+                <label class="label" for="avio-nombre">Insumo</label>
+                <input id="avio-nombre" type="text" class="input" placeholder="Ej: Cierre metalico" required>
+              </div>
+
+              <div class="field">
+                <label class="label" for="avio-unidad">Unidad</label>
+                <input id="avio-unidad" type="text" class="input" placeholder="u, m, cono, pack" required>
+              </div>
+
+              <div class="field">
+                <label class="label" for="avio-costo">Costo unitario</label>
+                <input id="avio-costo" type="number" min="0" step="0.01" class="input" placeholder="120" required>
+              </div>
+
+              <div class="field">
+                <label class="label" for="avio-stock">Stock actual</label>
+                <input id="avio-stock" type="number" min="0" step="0.01" class="input" placeholder="300" required>
+              </div>
+
+              <div class="field">
+                <label class="label" for="avio-minimo">Stock minimo</label>
+                <input id="avio-minimo" type="number" min="0" step="0.01" class="input" placeholder="80" required>
+              </div>
+
+              <div class="field">
+                <label class="label" for="avio-proveedor">Proveedor</label>
+                <input id="avio-proveedor" type="text" class="input" placeholder="Proveedor principal">
+              </div>
+
+              <div class="field full">
+                <label class="label" for="avio-notas">Notas</label>
+                <textarea id="avio-notas" class="textarea" placeholder="Color, calibre, lote o comentarios"></textarea>
+              </div>
+
+              <div class="align-right">
+                <button class="btn primary" type="submit">+ Guardar insumo</button>
+              </div>
+            </form>
+          </section>
+
+          <section class="card col-5">
+            <div class="section-head">
+              <div>
+                <h3>Alertas</h3>
+                <p class="hint">Reposicion sugerida por disponibilidad proyectada.</p>
+              </div>
+            </div>
+
+            <div id="lista-alertas-avios" class="alert-stack"></div>
+          </section>
+
+          <section class="card">
+            <div class="section-head">
+              <div>
+                <h3>Catalogo de insumos</h3>
+                <p class="hint">Detalle completo de costos, stock, consumo activo y criticidad.</p>
+              </div>
+            </div>
+
+            <div class="table-wrapper">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Insumo</th>
+                    <th>Unidad</th>
+                    <th>Costo</th>
+                    <th>Stock</th>
+                    <th>Minimo</th>
+                    <th>Comprometido</th>
+                    <th>Disponible</th>
+                    <th>Nivel</th>
+                    <th>Proveedor</th>
+                  </tr>
+                </thead>
+                <tbody id="tablaAvios"></tbody>
+              </table>
+            </div>
+          </section>
+        </div>
+      </div>
+    </main>
   </div>
 
-  <nav class="nav">
-
-    <a href="../index.html"> ⎈ Dashboard</a>
-    <a href="nuevaproduccion.html"> + Nueva Producción</a>
-
-    <div class="group"></div>
-
-    <a href="productos.html"> ▦ Productos</a>
-    <a href="telas.html"> ◐ Telas</a>
-    <a href="avios.html" class="active"> ⌁ Avíos</a>
-    <a href="procesos.html"> □ Procesos</a>
-
-    <div class="group"></div>
-
-  </nav>
-
-</aside>
-
-<!-- MAIN -->
-<main class="main">
-<div class="container">
-
-<div class="topbar">
-  <div>
-    <h2 class="page-title">Avíos</h2>
-    <p class="subtitle">Catálogo de avíos (etiquetas, bolsas, stickers, etc.)</p>
-  </div>
-</div>
-
-<div class="grid">
-<section class="card">
-
-<div class="split">
-
-<div class="header-block">
-  <h3>Avíos</h3>
-  <p class="hint">Catálogo simple para costear producciones (MVP).</p>
-</div>
-
-<form id="formAvio" class="form form-inline">
-
-  <div class="field">
-    <input type="text" class="input" placeholder="Avio" required>
-  </div>
-
-  <div class="field">
-    <input type="text" class="input" placeholder="Unidad" required>
-  </div>
-
-  <div class="field">
-    <input type="text" class="input" placeholder="Costo unitario" required>
-  </div>
-
-  <div class="field">
-    <input type="text" class="input" placeholder="Proveedor" required>
-  </div>
-
-  <div class="field">
-    <input type="text" class="input" placeholder="Notas" required>
-  </div>
-
-  <div class="field align-right">
-    <button class="btn">+ Avío</button>
-  </div>
-
-</form>
-
-</div>
-
-<table class="table" style="margin-top:12px">
-
-<thead>
-<tr>
-<th>Avío</th>
-<th>Unidad</th>
-<th>Costo unitario</th>
-<th>Proveedor</th>
-<th>Notas</th>
-</tr>
-</thead>
-
-<tbody id="tablaAvios">
-
-</tbody>
-
-</table>
-
-<p><span id="totalAvio">$0</span></p>
-
-</section>
-</div>
-
-</div>
-</main>
-
-</div>
-
-<script src="../js/dark-light-mode.js"></script>
-<script src="../js/avios.js"></script>
-<script src="../js/mobile-menu.js"></script>
-
+  <script src="../js/data-store.js"></script>
+  <script src="../js/dark-light-mode.js"></script>
+  <script src="../js/avios.js"></script>
+  <script src="../js/mobile-menu.js"></script>
 </body>
 </html>

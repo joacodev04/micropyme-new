@@ -1,102 +1,78 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MicroPyme Production</title>
-<link rel="stylesheet" href="../css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TelaPro | Procesos</title>
+  <link rel="stylesheet" href="../css/style.css">
 </head>
-
 <body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="logo"></div>
+        <div class="brand-copy">
+          <h1>TelaPro</h1>
+          <p>Control de produccion textil</p>
+        </div>
+        <button class="dark-light" type="button" aria-label="Cambiar tema">
+          <img src="../img/dark_mode_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg" alt="">
+        </button>
+      </div>
 
-<div class="app-shell">
+      <nav class="nav">
+        <a href="../index.html">Dashboard</a>
+        <a href="ordenes.html">Ordenes</a>
+        <a href="nuevaproduccion.html">Nueva produccion</a>
 
-<!-- SIDEBAR -->
-<aside class="sidebar">
+        <div class="group"></div>
 
-  <div class="brand">
-    <div class="logo"></div>
-    <div>
-      <h1>Production OS</h1>
-      <p>Micropyme Textil • Mock UI</p>
-      <button class="dark-light">
-        <img src="../img/dark_mode_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg" alt="">
-      </button>
-    </div>
+        <a href="productos.html">Productos</a>
+        <a href="telas.html">Telas</a>
+        <a href="avios.html">Insumos</a>
+        <a href="procesos.html" class="active">Procesos</a>
+      </nav>
+    </aside>
+
+    <main class="main">
+      <div class="container">
+        <div class="topbar">
+          <div>
+            <h2 class="page-title">Procesos</h2>
+            <p class="subtitle">Tarifas y modalidades para corte, estampado, costura y terminacion.</p>
+          </div>
+        </div>
+
+        <div class="grid">
+          <section class="card">
+            <div class="section-head">
+              <div>
+                <h3>Costos por proceso</h3>
+                <p class="hint">Completa modalidad y costo para usar esta tabla como referencia operativa.</p>
+              </div>
+            </div>
+
+            <div class="table-wrapper">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Producto</th>
+                    <th>Proceso</th>
+                    <th>Modalidad</th>
+                    <th>Costo</th>
+                  </tr>
+                </thead>
+                <tbody id="tablaProcesos"></tbody>
+              </table>
+            </div>
+          </section>
+        </div>
+      </div>
+    </main>
   </div>
 
-  <nav class="nav">
-
-    <a href="../index.html"> ⎈ Dashboard</a>
-    <a href="nuevaproduccion.html"> + Nueva Producción</a>
-
-    <div class="group"></div>
-
-    <a href="productos.html"> ▦ Productos</a>
-    <a href="telas.html"> ◐ Telas</a>
-    <a href="avios.html"> ⌁ Avíos</a>
-    <a href="procesos.html" class="active"> □ Procesos</a>
-
-    <div class="group"></div>
-
-  </nav>
-
-</aside>
-
-<!-- MAIN -->
-<main class="main">
-<div class="container">
-
-<div class="topbar">
-  <div>
-    <h2 class="page-title">Procesos</h2>
-    <p class="subtitle">Tarifas para corte, confección, estampa y finishing</p>
-  </div>
-</div>
-
-<div class="grid">
-<section class="card">
-
-<div class="split between">
-
-<div class="header-block">
-  <h3>Procesos</h3>
-  <p class="hint">Costos por proceso (unitario, fijo o mixto).</p>
-</div>
-
-<div>
-  <button id="boton-proceso" class="btn">+ Proceso</button>
-</div>
-
-</div>
-
-<table class="table" style="margin-top:12px">
-
-<thead>
-<tr>
-<th>Producto</th>
-<th>Proceso</th>
-<th>Modalidad</th>
-<th>Costo</th>
-</tr>
-</thead>
-
-<tbody id="tablaProcesos"></tbody>
-
-</table>
-
-</section>
-</div>
-
-</div>
-</main>
-
-</div>
-
-
-<script src="../js/dark-light-mode.js"></script>
-<script src="../js/procesos.js"></script>
-<script src="../js/mobile-menu.js"></script>
-
+  <script src="../js/dark-light-mode.js"></script>
+  <script src="../js/procesos.js"></script>
+  <script src="../js/mobile-menu.js"></script>
 </body>
 </html>

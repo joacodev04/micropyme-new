@@ -1,246 +1,281 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MicroPyme Production</title>
-<link rel="stylesheet" href="../css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TelaPro | Nueva produccion</title>
+  <link rel="stylesheet" href="../css/style.css">
 </head>
-
 <body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="logo"></div>
+        <div class="brand-copy">
+          <h1>TelaPro</h1>
+          <p>Control de produccion textil</p>
+        </div>
+        <button class="dark-light" type="button" aria-label="Cambiar tema">
+          <img src="../img/dark_mode_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg" alt="">
+        </button>
+      </div>
 
-<div class="app-shell">
+      <nav class="nav">
+        <a href="../index.html">Dashboard</a>
+        <a href="ordenes.html">Ordenes</a>
+        <a href="nuevaproduccion.html" class="active">Nueva produccion</a>
 
-<!-- SIDEBAR -->
-<aside class="sidebar">
+        <div class="group"></div>
 
-  <div class="brand">
-    <div class="logo"></div>
-    <div>
-      <h1>Production OS</h1>
-      <p>Micropyme Textil • Mock UI</p>
-      <button class="dark-light">
-        <img src="../img/dark_mode_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg" alt="">
-      </button>
-    </div>
+        <a href="productos.html">Productos</a>
+        <a href="telas.html">Telas</a>
+        <a href="avios.html">Insumos</a>
+        <a href="procesos.html">Procesos</a>
+      </nav>
+    </aside>
+
+    <main class="main">
+      <div class="container">
+        <div class="topbar">
+          <div>
+            <h2 class="page-title">Nueva orden de produccion</h2>
+            <p class="subtitle">Crea la orden, carga lotes o variantes y deja el seguimiento listo desde el minuto cero.</p>
+          </div>
+        </div>
+
+        <div class="grid">
+          <section class="card hero-panel">
+            <div class="hero-grid">
+              <div>
+                <span class="eyebrow">Flujo guiado</span>
+                <h3>Alta rapida con impacto directo en stock y seguimiento</h3>
+                <p class="hero-copy">Al activar la orden, el sistema registra historial, calcula materiales comprometidos y habilita el cambio de estado por prenda.</p>
+              </div>
+            </div>
+          </section>
+
+          <section class="card">
+            <div class="section-head">
+              <div>
+                <h3>Nueva produccion</h3>
+                <p class="hint">Completa los pasos y activa la orden cuando el resumen este listo.</p>
+              </div>
+            </div>
+
+            <div class="wizard-steps">
+              <div class="step active">1 Base</div>
+              <div class="step">2 Prendas</div>
+              <div class="step">3 Tela</div>
+              <div class="step">4 Flujo</div>
+              <div class="step">5 Insumos</div>
+              <div class="step">6 Resumen</div>
+            </div>
+
+            <hr class="sep">
+
+            <form id="form-produccion">
+              <div class="step-panel active">
+                <h4>Datos base</h4>
+                <div class="form">
+                  <div class="field">
+                    <label class="label" for="nombre-producto">Producto</label>
+                    <input id="nombre-producto" class="input" type="text" placeholder="Ej: Remera oversize">
+                  </div>
+
+                  <div class="field">
+                    <label class="label" for="codigo">Codigo</label>
+                    <input id="codigo" class="input" type="text" placeholder="OP-0241">
+                  </div>
+
+                  <div class="field">
+                    <label class="label" for="cliente">Cliente</label>
+                    <input id="cliente" class="input" type="text" placeholder="Marca o cliente">
+                  </div>
+
+                  <div class="field">
+                    <label class="label" for="fecha-entrega">Fecha de entrega</label>
+                    <input id="fecha-entrega" class="input" type="date">
+                  </div>
+
+                  <div class="field">
+                    <label class="label" for="prioridad">Prioridad</label>
+                    <select id="prioridad" class="select">
+                      <option value="Alta">Alta</option>
+                      <option value="Media" selected>Media</option>
+                      <option value="Baja">Baja</option>
+                    </select>
+                  </div>
+
+                  <div class="field">
+                    <label class="label" for="merma">Merma estimada (%)</label>
+                    <input id="merma" class="input" type="number" min="0" step="0.1" placeholder="5">
+                  </div>
+
+                  <div class="field full">
+                    <label class="label" for="notas">Notas</label>
+                    <textarea id="notas" class="textarea" placeholder="Observaciones para produccion, taller o compras"></textarea>
+                  </div>
+                </div>
+
+                <button type="button" class="btnSiguiente">Siguiente</button>
+              </div>
+
+              <div class="step-panel">
+                <h4>Prendas o lotes</h4>
+                <p class="hint">Cada fila queda lista para cambiar su estado entre Diseno, Corte, Costura y Terminado.</p>
+
+                <div class="form form-inline form-inline--wide">
+                  <div class="field">
+                    <input id="input-prenda" type="text" class="input" placeholder="Prenda o lote">
+                  </div>
+                  <div class="field">
+                    <input id="input-color" type="text" class="input" placeholder="Color">
+                  </div>
+                  <div class="field">
+                    <input id="input-modelo" type="text" class="input" placeholder="Modelo o talle">
+                  </div>
+                  <div class="field">
+                    <input id="input-unidades" type="number" min="1" class="input" placeholder="Unidades">
+                  </div>
+                  <div class="field align-right">
+                    <button type="button" class="btn" id="btn-agregar-prenda">+ Agregar prenda</button>
+                  </div>
+                </div>
+
+                <div class="table-wrapper">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th>Prenda</th>
+                        <th>Color</th>
+                        <th>Modelo</th>
+                        <th>Unidades</th>
+                        <th>Estado inicial</th>
+                        <th>Accion</th>
+                      </tr>
+                    </thead>
+                    <tbody id="tabla-prendas"></tbody>
+                  </table>
+                </div>
+
+                <button type="button" class="btnSiguiente">Siguiente</button>
+              </div>
+
+              <div class="step-panel">
+                <h4>Tela y costos base</h4>
+                <p class="hint">La tela elegida impacta en el stock comprometido del tablero.</p>
+
+                <div class="form">
+                  <div class="field full">
+                    <label class="label" for="select-tela">Tela</label>
+                    <select class="select" id="select-tela"></select>
+                  </div>
+
+                  <div class="field">
+                    <label class="label" for="consumo-tela">Consumo por prenda (kg)</label>
+                    <input id="consumo-tela" class="input" type="number" min="0" step="0.01" placeholder="0.35">
+                  </div>
+
+                  <div class="field">
+                    <label class="label" for="kg-por-pieza">Kg por pieza cerrada</label>
+                    <input id="kg-por-pieza" class="input" type="number" min="0" step="0.01" placeholder="24">
+                  </div>
+
+                  <div class="field">
+                    <label class="label" for="precio-kg">Precio por kg</label>
+                    <input id="precio-kg" class="input" type="number" min="0" step="0.01" placeholder="5200">
+                  </div>
+                </div>
+
+                <button type="button" class="btnSiguiente">Siguiente</button>
+              </div>
+
+              <div class="step-panel">
+                <h4>Flujo operativo</h4>
+                <p class="hint">Marca los procesos que intervienen en esta orden.</p>
+
+                <div class="check-grid">
+                  <label class="check-card">
+                    <input id="corte" data-label="Corte" type="checkbox">
+                    <span>Corte</span>
+                  </label>
+
+                  <label class="check-card">
+                    <input id="estampado" data-label="Estampado" type="checkbox">
+                    <span>Estampado</span>
+                  </label>
+
+                  <label class="check-card">
+                    <input id="costura" data-label="Costura" type="checkbox">
+                    <span>Costura</span>
+                  </label>
+
+                  <label class="check-card">
+                    <input id="terminacion" data-label="Terminacion" type="checkbox">
+                    <span>Terminacion</span>
+                  </label>
+                </div>
+
+                <button type="button" class="btnSiguiente">Siguiente</button>
+              </div>
+
+              <div class="step-panel">
+                <h4>Insumos comprometidos</h4>
+                <p class="hint">Define cantidades por orden para calcular disponibilidad proyectada y alertas.</p>
+
+                <div class="table-wrapper">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th>Insumo</th>
+                        <th>Unidad</th>
+                        <th>Costo</th>
+                        <th>Disponible</th>
+                        <th>Minimo</th>
+                        <th>Cantidad para esta orden</th>
+                      </tr>
+                    </thead>
+                    <tbody id="tabla-avios"></tbody>
+                  </table>
+                </div>
+
+                <button type="button" class="btnSiguiente">Siguiente</button>
+              </div>
+
+              <div class="step-panel">
+                <h4>Resumen final</h4>
+
+                <div class="table-wrapper">
+                  <table class="table table-resumen">
+                    <tbody id="tabla-resumen"></tbody>
+                  </table>
+                </div>
+
+                <div class="summary-grid">
+                  <div>
+                    <h5 class="summary-title">Prendas a seguir</h5>
+                    <div id="resumen-prendas" class="summary-grid"></div>
+                  </div>
+
+                  <div>
+                    <h5 class="summary-title">Insumos asignados</h5>
+                    <div id="resumen-avios" class="summary-grid"></div>
+                  </div>
+                </div>
+
+                <button type="submit" id="activar-produccion" class="btn-primary btn-primary--wide">Activar produccion</button>
+              </div>
+            </form>
+          </section>
+        </div>
+      </div>
+    </main>
   </div>
 
-  <nav class="nav">
-    <a href="../index.html"> ⎈ Dashboard</a>
-    <a href="nuevaproduccion.html" class="active"> + Nueva Producción</a>
-
-    <div class="group"></div>
-
-    <a href="productos.html"> ▦ Productos</a>
-    <a href="telas.html"> ◐ Telas</a>
-    <a href="avios.html"> ⌁ Avíos</a>
-    <a href="procesos.html"> □ Procesos</a>
-
-    <div class="group"></div>
-    
-  </nav>
-
-</aside>
-
-<!-- MAIN -->
-<main class="main">
-<div class="container">
-
-<div class="topbar">
-  <div>
-    <h2 class="page-title">Nueva Producción</h2>
-  </div>
-</div>
-
-<div class="grid">
-<section class="card" style="grid-column: span 12;">
-
-<h3>Nueva producción</h3>
-
-<!-- STEPS -->
-<div class="wizard-steps">
-  <div class="step active">1 Producto</div>
-  <div class="step">2 Colores & Unidades</div>
-  <div class="step">3 Tela & Piezas</div>
-  <div class="step">4 Procesos</div>
-  <div class="step">5 Avíos</div>
-  <div class="step">6 Resumen</div>
-</div>
-
-<hr class="sep">
-
-<form id="form-produccion">
-<!-- PASO 1 -->
-<div class="step-panel active">
-
-<h4>Producto</h4>
-
-<div class="product-actions">
-  <input type="text" id="nombre-producto" class="input" placeholder="Nombre del Producto" required>
-</div>
-
-<div class="form">
-
-
-<div class="field">
-<div class="label">Merma</div>
-<input id="merma" class="input" value="5%">
-<button type="button" class="btnSiguiente">Siguiente</button>
-</div>
-
-<div class="field">
-<div class="label">Código</div>
-<input id="codigo" class="input" value="PR-XXXX">
-
-</div>
-
-</div>
-</div>
-
-
-<!-- PASO 2 -->
-<div class="step-panel">
-
-<h4>Definí colores y cantidades</h4>
-
-<div class="product-actions">
-    <input type="text" class="input" id="input-color" placeholder="Agregar color">
-    <button type="button" class="btn" id="btn-agregar-color">+ Color</button>
-</div>
-
-<table class="table">
-<thead>
-<tr>
-<th>Color</th>
-<th>Unidades</th>
-<th>Modelos</th>
-</tr>
-</thead>
-
-<tbody id="color-texto"></tbody>
-</table>
-
-<button type="button" class="btnSiguiente">Siguiente</button>
-
-</div>
-
-<!-- PASO 3 -->
-<div class="step-panel">
-
-<h4>Seleccionar tela</h4>
-
-<select class="select-tela" id="select-tela"></select>
-
-
-<div class="form">
-
-<div class="field">
-<div class="label">Consumo kg/prenda</div>
-<input id="consumo-tela" class="input" value="0kg">
-</div>
-
-<div class="field">
-<div class="label">Kg por pieza cerrada</div>
-<input id="kg-por-pieza" class="input" value="0kg">
-</div>
-
-<div class="field">
-<div class="label">Precio/kg</div>
-<input id="precio/kg" class="input" value="$0">
-</div>
-
-</div>
-
-<button type="button" class="btnSiguiente">Siguiente</button>
-
-</div>
-
-<!-- PASO 4 -->
-<div class="step-panel">
-
-<h4>Procesos</h4>
-
-<table class="table">
-<tr>
-<td>Corte</td>
-<td><input id="corte" type="checkbox"></td>
-</tr>
-
-<tr>
-  <td>Estampado</td>
-  <td><input id="estampado" type="checkbox"></td>
-</tr>
-
-<tr>
-  <td>Confeccion</td>
-  <td><input id="confeccion" type="checkbox"></td>
-</tr>
-
-<tr>
-  <td>Finishing</td>
-  <td><input id="finishing" type="checkbox"></td>
-</tr>
-</table>
-
-<button type="button" class="btnSiguiente">Siguiente</button>
-
-</div>
-
-<!-- PASO 5 -->
-<div class="step-panel">
-
-<h4>Avíos</h4>
-
-<table class="table">
-<thead>
-<tr>
-<th>Avío</th>
-<th>Unidad</th>
-<th>Costo</th>
-<th>Cantidad</th>
-</tr>
-</thead>
-
-<tbody id="tabla-avios"></tbody>
-</table>
-
-<button type="button" class="btnSiguiente">Siguiente</button>
-
-</div>
-
-<!-- PASO 6 -->
-<div class="step-panel">
-
-<h4>Resumen financiero</h4>
-
-<table class="table table-resumen">
-  <tbody id="tabla-resumen"></tbody>
-</table>
-
-<button type="submit" id="activar-produccion" class="btn-primary">Activar producción</button>
-
-</div>
-
-</div>
-</form>
-
-<!-- NAV -->
-<div style="display:flex;justify-content:space-between;margin-top:16px">
-
-</div>
-
-</section>
-</div>
-
-</div>
-</main>
-
-</div>
-
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script src="../js/dark-light-mode.js"></script>
-<script src="../js/nuevaproduccion.js"></script>
-<script src="../js/mobile-menu.js"></script>
-
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="../js/data-store.js"></script>
+  <script src="../js/dark-light-mode.js"></script>
+  <script src="../js/nuevaproduccion.js"></script>
+  <script src="../js/mobile-menu.js"></script>
 </body>
 </html>

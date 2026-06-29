@@ -1,136 +1,118 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MicroPyme Production</title>
-<link rel="stylesheet" href="../css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TelaPro | Productos</title>
+  <link rel="stylesheet" href="../css/style.css">
 </head>
-
 <body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="logo"></div>
+        <div class="brand-copy">
+          <h1>TelaPro</h1>
+          <p>Control de produccion textil</p>
+        </div>
+        <button class="dark-light" type="button" aria-label="Cambiar tema">
+          <img src="../img/dark_mode_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg" alt="">
+        </button>
+      </div>
 
-<div class="app-shell">
+      <nav class="nav">
+        <a href="../index.html">Dashboard</a>
+        <a href="ordenes.html">Ordenes</a>
+        <a href="nuevaproduccion.html">Nueva produccion</a>
 
-<!-- SIDEBAR -->
-<aside class="sidebar">
+        <div class="group"></div>
 
-  <div class="brand">
-    <div class="logo"></div>
-    <div>
-      <h1>Production OS</h1>
-      <p>Micropyme Textil • Mock UI</p>
-      <button class="dark-light">
-        <img src="../img/dark_mode_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg" alt="">
-      </button>
-    </div>
+        <a href="productos.html" class="active">Productos</a>
+        <a href="telas.html">Telas</a>
+        <a href="avios.html">Insumos</a>
+        <a href="procesos.html">Procesos</a>
+      </nav>
+    </aside>
+
+    <main class="main">
+      <div class="container">
+        <div class="topbar">
+          <div>
+            <h2 class="page-title">Productos</h2>
+            <p class="subtitle">Plantillas comerciales y productivas para repetir referencias sin cargar todo de nuevo.</p>
+          </div>
+        </div>
+
+        <div class="grid">
+          <section class="card">
+            <div class="section-head">
+              <div>
+                <h3>Catalogo de productos</h3>
+                <p class="hint">Sirve como base para nuevas ordenes y referencia de costos historicos.</p>
+              </div>
+            </div>
+
+            <form id="formProductos" class="form">
+              <div class="field">
+                <input id="producto" type="text" class="input" placeholder="Producto" required>
+              </div>
+
+              <div class="field">
+                <input id="tela" type="text" class="input" placeholder="Tela default" required>
+              </div>
+
+              <div class="field">
+                <input id="consumo" type="text" class="input" placeholder="Consumo promedio" required>
+              </div>
+
+              <div class="field">
+                <input id="margen" type="text" class="input" placeholder="Margen" required>
+              </div>
+
+              <div class="field">
+                <input id="comisiones" type="text" class="input" placeholder="Comisiones" required>
+              </div>
+
+              <div class="field">
+                <input id="precioVenta" type="text" class="input" placeholder="Precio de venta" required>
+              </div>
+
+              <div class="field">
+                <input id="costoFinal" type="text" class="input" placeholder="Costo final" required>
+              </div>
+
+              <div class="align-right">
+                <button id="btnProducto" class="btn primary" type="submit">+ Guardar producto</button>
+              </div>
+            </form>
+          </section>
+
+          <section class="card">
+            <div class="table-wrapper">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Producto</th>
+                    <th>Tela default</th>
+                    <th>Consumo promedio</th>
+                    <th>Margen</th>
+                    <th>Comisiones</th>
+                    <th>Precio de venta</th>
+                    <th>Costo final</th>
+                    <th>Ultima actualizacion</th>
+                  </tr>
+                </thead>
+                <tbody id="tablaProductos"></tbody>
+              </table>
+            </div>
+          </section>
+        </div>
+      </div>
+    </main>
   </div>
 
-  <nav class="nav">
-
-    <a href="../index.html"> ⎈ Dashboard</a>
-    <a href="nuevaproduccion.html"> + Nueva Producción</a>
-
-    <div class="group"></div>
-
-    <a href="productos.html" class="active"> ▦ Productos</a>
-    <a href="telas.html"> ◐ Telas</a>
-    <a href="avios.html"> ⌁ Avíos</a>
-    <a href="procesos.html"> □ Procesos</a>
-
-    <div class="group"></div>
-
-  </nav>
-
-</aside>
-
-<!-- MAIN -->
-<main class="main">
-<div class="container">
-
-<div class="topbar">
-  <div>
-    <h2 class="page-title">Productos</h2>
-    <p class="subtitle">Plantillas con consumo histórico y defaults</p>
-  </div>
-</div>
-
-<div class="grid">
-<section class="card">
-
-<div class="split">
-
-<div>
-<h3>Catálogo de productos</h3>
-</div>
-
-<form id="formProductos" class="form form-telas form-inline">
-
-  <div class="field">
-    <input id="producto" type="text" class="input" placeholder="Producto" required>
-  </div>
-
-  <div class="field">
-    <input id="tela" type="text" class="input" placeholder="Tela" required>
-  </div>
-
-  <div class="field">
-    <input id="consumo" type="text" class="input" placeholder="Consumo Promedio" required>
-  </div>
-
-  <div class="field">
-    <input id="margen" type="text" class="input" placeholder="Margen" required>
-  </div>
-
-  <div class="field">
-    <input id="comisiones" type="text" class="input" placeholder="Comisiones" required>
-  </div>
-
-  <div class="field">
-    <input id="precioVenta" type="text" class="input" placeholder="Precio de venta" required>
-  </div>
-
-  <div class="field">
-    <input id="costoFinal" type="text" class="input" placeholder="Costo final" required>
-  </div>
-
-  <div class="field align-right">
-    <button id="btnProducto" class="btn">+ Producto</button>
-  </div>
-</form>
-</div>
-
-</div>
-
-<table class="table" style="margin-top:12px">
-
-<thead>
-<tr>
-<th>Producto</th>
-<th>Tela default</th>
-<th>Consumo promedio</th>
-<th>Margen</th>
-<th>Comisiones</th>
-<th>Precio de venta</th>
-<th>Costo final</th>
-<th>Última actualización</th>
-</tr>
-</thead>
-
-<tbody id="tablaProductos"></tbody>
-
-</table>
-
-</section>
-</div>
-
-</div>
-</main>
-
-</div>
-
-<script src="../js/dark-light-mode.js"></script>
-<script src="../js/productos.js"></script>
-<script src="../js/mobile-menu.js"></script>
-
+  <script src="../js/dark-light-mode.js"></script>
+  <script src="../js/productos.js"></script>
+  <script src="../js/mobile-menu.js"></script>
 </body>
 </html>

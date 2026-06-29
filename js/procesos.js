@@ -1,71 +1,55 @@
-let productos = JSON.parse(localStorage.getItem("productos")) || []; //Traigo los productos guardados en memoria
+let productos = JSON.parse(localStorage.getItem("productos")) || [];
 
 const tablaProcesos = document.getElementById("tablaProcesos");
 
-function renderProductos(){
+function renderProductos() {
+  if (!tablaProcesos) return;
 
   tablaProcesos.innerHTML = "";
 
-  productos.forEach(p => {
-
+  productos.forEach((producto) => {
     tablaProcesos.innerHTML += `
       <tr>
-
-        <td>${p.producto}</td>
-
+        <td>${producto.producto}</td>
         <td>
           <select class="select select--small">
             <option value="">Seleccionar proceso</option>
             <option value="Corte">Corte</option>
-            <option value="Confección">Confección</option>
+            <option value="Costura">Costura</option>
             <option value="Bordado">Bordado</option>
             <option value="Estampado">Estampado</option>
             <option value="Finishing">Finishing</option>
           </select>
         </td>
-
         <td><input class="input" type="text" placeholder="Modalidad"></td>
         <td><input class="input" type="number" placeholder="Costo"></td>
       </tr>
     `;
-
   });
-
 }
 
-document.addEventListener("blur", function(e){
+document.addEventListener(
+  "blur",
+  (event) => {
+    if (!event.target.classList.contains("input")) return;
 
-  if(e.target.classList.contains("input")){
+    const input = event.target;
+    const value = input.value;
 
-    const input = e.target;
-    const valor = input.value;
+    if (!value) return;
 
-    if(valor !== ""){
+    input.parentElement.innerHTML = `<span class="editable">${value}</span>`;
+  },
+  true
+);
 
-      const td = input.parentElement;
+document.addEventListener("click", (event) => {
+  if (!event.target.classList.contains("editable")) return;
 
-      td.innerHTML = `<span class="editable">${valor}</span>`;
+  const span = event.target;
+  const value = span.textContent;
 
-    }
-
-  }
-
-}, true);
-
-
-document.addEventListener("click", function(e){
-
-  if(e.target.classList.contains("editable")){
-
-    const span = e.target;
-    const valor = span.textContent;
-
-    const td = span.parentElement;
-
-    td.innerHTML = `<input class="input" value="${valor}">`;
-
-  }
-
+  span.parentElement.innerHTML = `<input class="input" value="${value}">`;
 });
 
 renderProductos();
