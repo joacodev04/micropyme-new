@@ -1,0 +1,86 @@
+:root { --sidebar-width: 250px; }
+body { margin: 0; width: 100%; min-width: 320px; background: #f5f7fb; color: #1f2937; font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif; }
+.app-shell { display: block; width: 100%; min-height: 100vh; }
+.sidebar { position: fixed; inset: 0 auto 0 0; width: var(--sidebar-width); height: 100vh; z-index: 1030; overflow-y: auto; }
+.brand { min-height: 76px; padding: 16px 20px; display: flex; align-items: center; gap: 12px; }
+.brand-logo { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 12px; background: linear-gradient(135deg, #6f42c1, #0dcaf0); color: #fff; font-size: 1.4rem; font-weight: 800; }
+.nav-link { color: rgba(255,255,255,.75) !important; padding: .75rem 1rem; }
+.nav-link:hover, .nav-link.active { color: white !important; background: rgba(255,255,255,.12); }
+.main { box-sizing: border-box; width: calc(100% - var(--sidebar-width)); min-height: 100vh; margin-left: var(--sidebar-width); overflow-x: hidden; }
+.topbar { min-height: 58px; }
+.card { border: 0; }
+.table th { color: #6c757d; font-size: .75rem; text-transform: uppercase; letter-spacing: .03em; white-space: nowrap; }
+.empty-state { color: #6c757d; }
+.progress { height: 8px; }
+.menu-toggle, .sidebar-overlay { display: none; }
+@media (max-width: 991.98px) {
+  .sidebar { left: calc(var(--sidebar-width) * -1); transition: left .2s ease; box-shadow: 0 0 1rem rgba(0,0,0,.2); }
+  .sidebar.active { left: 0; }
+  .main { width: 100%; margin-left: 0; }
+  .menu-toggle { display: block; position: fixed; left: 1rem; top: 1rem; z-index: 1040; }
+  .sidebar-overlay { display: block; position: fixed; inset: 0; z-index: 1020; border: 0; background: rgba(0,0,0,.45); }
+  .topbar { padding-left: 3.5rem; }
+}
+
+/* Overrides for the old visual theme: React owns the page layout now. */
+.main > .container-fluid { width: 100%; max-width: 100%; margin: 0; padding: 1.5rem; }
+.main .card { color: #212529; background: #fff; }
+.main .table { min-width: 0; }
+@media (max-width: 575.98px) {
+  .main > .container-fluid { padding: 1rem; }
+  .topbar { padding-left: 3.5rem; }
+}
+
+/* Bootstrap controls: the legacy stylesheet defined generic .btn rules
+   with a transparent background and inherited text color. */
+.main .btn {
+  margin-top: 0;
+  min-height: 38px;
+  border-radius: .75rem;
+  text-align: center;
+  font-weight: 500;
+  line-height: 1.4;
+}
+.main .btn-primary {
+  color: #fff;
+  background: #6f42c1;
+  border-color: #6f42c1;
+}
+.main .btn-primary:hover,
+.main .btn-primary:focus {
+  color: #fff;
+  background: #59339d;
+  border-color: #59339d;
+}
+.main .btn-outline-primary {
+  color: #59339d;
+  background: #fff;
+  border: 1px solid #6f42c1;
+}
+.main .btn-outline-primary:hover,
+.main .btn-outline-primary:focus,
+.main .btn-outline-primary.active {
+  color: #fff;
+  background: #6f42c1;
+  border-color: #6f42c1;
+}
+.main .btn-outline-secondary {
+  color: #495057;
+  background: #fff;
+  border: 1px solid #adb5bd;
+}
+.main .btn-outline-secondary:hover,
+.main .btn-outline-secondary:focus {
+  color: #212529;
+  background: #e9ecef;
+  border-color: #6c757d;
+}
+.main .btn-outline-danger {
+  color: #dc3545;
+  background: #fff;
+  border: 1px solid #dc3545;
+}
+.main .btn-group > .btn { border-radius: .5rem; }
+.main .card-footer { background: #fff; border-top: 1px solid #e9ecef; }
+.sidebar-group + .sidebar-group { margin-top: 1.5rem; padding-top: 1.25rem; border-top: 1px solid rgba(255,255,255,.12); }
+.sidebar-group-title { display: block; padding: 0 1rem .5rem; color: rgba(255,255,255,.45); font-size: .68rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
